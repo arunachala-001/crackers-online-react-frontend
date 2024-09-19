@@ -1,0 +1,88 @@
+.Search-Bar {
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(255, 208, 0);
+}
+.Search-Container {
+    margin: auto;
+}
+.Search {
+    height: 30px;
+    width: 210px;
+    border-radius: 20px 00px 0px 20px;
+    text-align: center;
+}
+.Search-btn {
+    height: 30px;
+    background-color: #0f3806;
+    color: white;
+    font-weight: bold;
+    border-radius: 0px 20px 20px 0px;
+}
+.SelectBox {
+    background-color: #0f3806;
+    color: white;
+    width: 200px;
+    height: 30px;
+    margin-left: 20px;
+    align-self: center;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.popup-container {
+    top: 50%;
+    left: 30%;
+    width: 500px;
+    height: 100px;
+    background-color: yellow;
+    align-content: center;
+    position: fixed;
+}
+
+.background {
+    margin-top: 20px;
+    height: 200px;
+    max-width: 1500px;    
+}
+
+.contact {
+    text-align: center;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.category-container {
+    margin: auto;
+    padding-top: 30px;
+    width: 1100px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: #ece5e5;
+}
+
+/* .categories {
+    width: 300px;
+    height: 300px;
+    background-color: #ffffff;
+    box-shadow: inset;
+
+} */
+.button-category {
+    width: 170px;
+    height: 170px;
+    margin: 20px;
+    border: none;
+    background:none;
+}
+.button-category :hover {
+   width: 180px;
+   height: 180px;
+   transition: 0.29s;
+}
+.categoryImage {
+    width: 150px;
+    height: 150px;
+}

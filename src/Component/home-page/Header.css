@@ -1,0 +1,33 @@
+
+.model-header-page {
+    display: flex;
+    background-color: white;
+    box-shadow: 2px 2px rgb(166, 166, 166);
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    top: 0px;
+}
+.Header-Container {
+   margin-left: 20px;
+}
+.tags { 
+    display: flex;
+    margin-right: 10px;
+    align-items: center;
+    padding: 30px;
+    justify-content: space-evenly;
+}
+.tag {
+    background: none;
+    border: none;
+    margin: 10px;
+    font-weight: bold;
+
+}
+.tag:hover {
+   transition: 0.20s;   
+   cursor: pointer;
+   text-decoration: underline;
+}
+
