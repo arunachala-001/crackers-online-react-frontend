@@ -1,3 +1,33 @@
+.title-1-container {
+   display: flex;
+}
+.title-1 {
+    margin-left: 5px;
+    margin-top: 50px;
+    font-family: cursive;
+    color: #007466;
+    letter-spacing: 1.1px;
+}
+.logo1 {
+    margin-top: 5px;
+    width: 120px;
+    height: 80px;
+}
+.logo2 {
+    margin-top: 5px;
+    width: 100px;
+    height: 60px;
+    margin-left: 20px;
+}
+.title-2-container {
+    display: flex;
+}
+.title-2 {
+    font-family: cursive;
+    margin-left: 200px;
+    margin-top: 2px;
+    color: #bd8c00;
+}
 
 .model-header-page {
     display: flex;
@@ -8,13 +38,14 @@
     width: 100%;
     top: 0px;
 }
-.Header-Container {
+/* .Header-Container {
    margin-left: 20px;
-}
+} */
 .tags { 
     display: flex;
     margin-right: 10px;
-    align-items: center;
+    /* align-items: center; */
+    align-items:end;
     padding: 30px;
     justify-content: space-evenly;
 }
@@ -23,6 +54,7 @@
     border: none;
     margin: 10px;
     font-weight: bold;
+    font-size : 16px;
 
 }
 .tag:hover {

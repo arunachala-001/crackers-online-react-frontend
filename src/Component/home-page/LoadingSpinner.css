@@ -1,0 +1,13 @@
+.LoadingSpinner {
+    border: 8px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #3498db; /* Change this color for your spinner */
+    border-radius: 50%;
+    width: 40px; /* Adjust size */
+    height: 40px; /* Adjust size */
+    animation: spin 1s linear infinite; /* Animation */
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}   

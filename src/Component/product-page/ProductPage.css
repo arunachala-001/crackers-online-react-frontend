@@ -1,32 +1,125 @@
+.banner {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 180px;
+    height: 100px;
+    width: 100%;
+    background-image: url('../home-page/Search-Bar-Logo.png');
+    background-size: cover;
+    background-position: center;
+}
+.offer-tag {
+    margin-left: 40px;
+    width: 140px;
+    height: 140px;
+    border-radius: 100%;
+    margin-top: 30px;
+}
+.sort-box {
+    padding: 20px;
+    margin-right: 20px;
+    align-self: center;
+}
+.sort-box select {
+    width: 200px;
+    border-radius: 20px;
+    text-align: center;
+}
+.banner label {
+    font-weight: bold;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    margin-right: 10px;
+    font-size: 18px;
+}
 .product-container {
     margin: auto;
     padding-top: 30px;
-    width: 1100px;
+    width: 1050px;
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
-    background-color: #ece5e5;
+    align-content: center;
+    border-radius: 30px;
+    background-color: #ffffff;
+    box-shadow:3px 4px rgba(0, 0, 0, 0.5)
 }
 .products {
     width: 200px;
     height :auto;
     margin: 15px;
-    padding-bottom: 15px;
-    background-color: white;
+    border-radius: 20px;
+    /* justify-content: center; */
+    padding-bottom: 5px;
+    background-color: rgb(255, 255, 255);
+    box-shadow:3px 4px rgba(0, 0, 0, 0.5)
+}
+.products h2 {
+    margin-top: 2px;
+    color: #107f78;
+    letter-spacing: 1.2px;
+    font-family: monospace;
+}
+.products p {
+    font-family: 'Times New Roman', Times, serif;
+    color: #43b873;
+    margin-top: 3px;
+}
+.products button {
+    width: 180px;
+    border-radius: 10px;
+    border: none;
+    background-color: #a29a00;
+    letter-spacing: 0.9px;
+    font-weight: bold;
+    color: #ffffff;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.price-tag {
+    display: flex;
+    margin-left: 40px;
+    margin-top: 2px;
+}
+
+.orginal-price {
+    margin-top: 10px;
+    padding-left: 5px;
+    font-weight: bold;
+    font-style: italic;
+    text-decoration: line-through;
+    color: red;
 }
 .product-btn {
     width: 170px;
     height: 170px;
-    margin: 20px;
+    /* margin: 20px; */
     border: none;
     background:none;
 }
-.product-btn :hover {
+/* .product-btn :hover {
     width: 180px;
     height: 180px;
     transition: 0.29s;
-}
+} */
 .product-image {
     width: 150px;
     height: 150px;
+    border-radius: 20px;
+}
+.order-btn-container {
+    display: flex;
+    justify-content: flex-end;
+}
+.order-btn {
+    width: 200px;
+    height: 40px;
+    background-color: #00cc6c;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 20px;
+    letter-spacing: 1.8px;
+    margin-bottom: 15px;
+    margin-top: 20px;
+    margin-right: 140px;
 }
