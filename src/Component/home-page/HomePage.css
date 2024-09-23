@@ -396,10 +396,10 @@
     }
 
     .offer-img {
-        width: 35px;
-        height: 35px;
+        width: 55px;
+        height: 55px;
         position: fixed;
-        left: 2%;
+        left: 5%;
         top: 55%;
         border-radius: 100%;
     }
