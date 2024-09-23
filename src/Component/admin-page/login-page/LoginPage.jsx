@@ -10,7 +10,7 @@ export default function LoginPage() {
     const navigate = useNavigate()
 
     function validateuser() {
-        axios.post('http://localhost:8080/login', null, {
+        axios.post('https://sivakasi-crackers.onrender.com/login', null, {
             params: {
                 username: username,
                 password: password 

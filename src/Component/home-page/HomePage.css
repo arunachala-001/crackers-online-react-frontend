@@ -33,6 +33,14 @@
     border-radius: 10px;
     padding: 5px;
 }
+.offer-img {
+    width: 75px;
+    height: 75px;
+    position: fixed;
+    left: 3%;
+    top: 85%;
+    border-radius: 100%;
+}
 
 .popup-container {
     top: 50%;
@@ -388,11 +396,12 @@
     }
 
     .offer-img {
-        width: 25px;
-        height: 25px;
+        width: 35px;
+        height: 35px;
         position: fixed;
         left: 2%;
         top: 55%;
+        border-radius: 100%;
     }
     
     

@@ -58,7 +58,7 @@ export default function AdminHome() {
         formData.append('image', image);
         const token = localStorage.getItem('token')
         console.log(token)
-        axios.post('http://localhost:8080/admin/store/category', formData, {
+        axios.post('https://sivakasi-crackers.onrender.com/admin/store/category', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     'Authorization': `Bearer ${token}`, // Add token to headers
@@ -85,7 +85,7 @@ export default function AdminHome() {
         formData.append('image',image)
         const token = localStorage.getItem('token')
         console.log(token)
-        axios.post(`http://localhost:8080/admin/store/${product}`, formData, {
+        axios.post(`https://sivakasi-crackers.onrender.com/admin/store/${product}`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     'Authorization': `Bearer ${token}`, // Add token to headers
@@ -100,7 +100,7 @@ export default function AdminHome() {
     }
     function retrieveAllOrders() {
         const token = localStorage.getItem('token')
-        axios.get('http://localhost:8080/admin/all-orders', {
+        axios.get('https://sivakasi-crackers.onrender.com/admin/all-orders', {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization':`Bearer ${token}`, // Add token to headers
@@ -117,7 +117,7 @@ export default function AdminHome() {
 
     function retrieveAllInvoiceswithCustomer() {
         const token = localStorage.getItem('token')
-        axios.get('http://localhost:8080/admin/customers', {
+        axios.get('https://sivakasi-crackers.onrender.com/admin/customers', {
             headers: {
                 'Authorization':`Bearer ${token}`, // Add token to headers
             }
@@ -139,7 +139,7 @@ export default function AdminHome() {
     function downloadInvoice(userId) {
         const token = localStorage.getItem('token')
         axios({
-         url:`http://localhost:8080/invoice/download/${userId}`,
+         url:`https://sivakasi-crackers.onrender.com/invoice/download/${userId}`,
          method:"POST",
          responseType: "blob",
          headers : {
@@ -188,7 +188,7 @@ export default function AdminHome() {
      if(event.target.value === "Pending" || event.target.value === "Completed") {
         const orderStatus = event.target.value
         setFilterStatus(true)
-        axios.get(`http://localhost:8080/admin/customer-order/get/status/${orderStatus}`,{
+        axios.get(`https://sivakasi-crackers.onrender.com/admin/customer-order/get/status/${orderStatus}`,{
             headers: {
                 'Authorization':`Bearer ${token}`
             }
@@ -202,7 +202,7 @@ export default function AdminHome() {
 
    function editStatus(id, custDetails) {
        const token = localStorage.getItem('token')
-       axios.put(`http://localhost:8080/admin/customer-order/status/${id}`, custDetails, {
+       axios.put(`https://sivakasi-crackers.onrender.com/admin/customer-order/status/${id}`, custDetails, {
         headers: {
             'Authorization':`Bearer ${token}`, // Add token to headers
         }

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import './OrderPage.css'
 import { BounceLoader } from 'react-spinners';
-import downloadIcon from './Download-Icon.png'
+
 
 export default function OrderPage() {
     // const {id} = useParams()

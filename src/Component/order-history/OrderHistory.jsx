@@ -24,7 +24,7 @@ export default function OrderHistory() {
 
     function downloadInvoice(userId) {
         axios({
-         url:`http://localhost:8080/invoice/download/${userId}`,
+         url:`https://sivakasi-crackers.onrender.com/invoice/download/${userId}`,
          method:"POST",
          responseType: "blob"
         })

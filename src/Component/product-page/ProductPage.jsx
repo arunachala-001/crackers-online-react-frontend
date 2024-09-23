@@ -92,7 +92,7 @@ export default function ProductPage() {
             {product.map(p => (
                 <div key={p.id}>
                     <div className="products">
-                       <img src={`http://localhost:8080/image/${p.image}`} className="product-image"
+                       <img src={`https://sivakasi-crackers.onrender.com/image/${p.image}`} className="product-image"
                         alt={p.productName}></img>
                     <hr />
                    
@@ -123,10 +123,10 @@ export default function ProductPage() {
               className="order-btn">ORDER NOW</button>
             </div>
             <div className="footer-container" onClick={offPopUp}>
-                 <h3>Enjoy Diwali with colourful and brightful celebrations</h3>
+                 <h3>Enjoy Diwali with colourful and brightful celebrations🦚</h3>
                  <div className="footer-content-container">
                  <div className="terms-condition">
-                    <h4>Terms & Conditions</h4>
+                    <h4>Terms & Conditions🧨</h4>
                     <p>1. 3% Packing charges will be charged extra</p>
                     <p>2. Goods will be dispatched on CASH & CARRY basic only</p>
                     <p>3. Return Goods cannot be taken</p>
@@ -134,10 +134,10 @@ export default function ProductPage() {
                  </div>
                  <div className="signature">
                     <h3>Yours Faithfully</h3>
-                    <h4>For VENKATA SAI TRADERS</h4>
+                    <h4>For VENKATA SAI TRADERS🎉</h4>
                  </div>
                  </div>
-                 <h2 className="final-thanks">Wish you a safe and prosperous Diwali</h2>
+                 <h2 className="final-thanks">Wish you a safe and prosperous Diwali🎇</h2>
                </div>
 
         </div>
