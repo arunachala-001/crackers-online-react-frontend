@@ -190,17 +190,17 @@
         background-color: rgb(255, 255, 71);
     }
     .Search-Container {
-        width: 70px;
+        width: 100px;
     }
     .Search {
         height: 15px;
-        width: 40px;
+        width: 70px;
         border-radius: 20px 00px 0px 20px;
         text-align: center;
         font-size: 6px;
     }
     .Search-btn {
-        width: 25px;
+        width: 30px;
         height: 15px;
         background-color: #0f3806;
         color: white;
@@ -223,7 +223,7 @@
     
     .popup-container {
         top: 40%;
-        left: 8%;
+        left: 13%;
         width: 250px;
         height: 60px;
         border-radius: 15px;

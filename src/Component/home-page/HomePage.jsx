@@ -123,7 +123,7 @@ export default function HomePage() {
                 
                </select>
                <div className="Search-Container">
-                 <input type="search" className="Search" placeholder="Search Products..."
+                 <input type="search" className="Search" placeholder="Search..."
                  value={search} onChange={(e)=> setSearch(e.target.value)}></input>
                  <button className="Search-btn" onClick={retrieveProductsBySearch}>OK</button>
                </div>
