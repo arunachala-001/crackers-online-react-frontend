@@ -18,7 +18,6 @@ export default function OrderPage() {
     const [customer, setCustomer] = useState(false)
     const [orderTrue, setOrderTrue] = useState(false)
     const [userResponse, setUserResponse] = useState("")
-    const [imageUrl, setImageUrl] = useState([])
     const [userId, setUserId] = useState("")
 
     const [FirstName, setFirstName] = useState("")

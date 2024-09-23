@@ -1,6 +1,5 @@
 import HeaderPage from "./HeaderPage";
-import background from "./Diwali.png"
-import offerTag from './offer-tag.jpg'
+
 import { BounceLoader } from 'react-spinners';
 import './HomePage.css'
 import { useEffect, useState } from "react";
@@ -13,7 +12,6 @@ export default function HomePage() {
    const [search, setSearch] = useState("")
    const [searchProducts, setSearchProducts] = useState([])
    const[searchTrue, setSearchTrue] = useState(false)
-   const [allCategory, setAllCategory] = useState()
    const [popup, setPopup] = useState(false)  
    const [email, setEmail] = useState()
 

@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import './Admin.css'
-import { createCategory, fetchAllInvoice, fetchAllOrders, updateOrderStatus } from '../AdminRouter'
 import axios from 'axios'
 import { fetchAllCategories } from '../../APIs/Controller'
 

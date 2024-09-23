@@ -6,7 +6,7 @@ import './LoginPage.css'
 export default function LoginPage() {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
-    const [token, setToken] = useState("")
+    
     const navigate = useNavigate()
 
     function validateuser() {

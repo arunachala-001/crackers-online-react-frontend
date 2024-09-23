@@ -2,11 +2,8 @@ import { useNavigate } from 'react-router-dom';
 import './Header.css';
 import logo1 from './diwali_logo.png'
 import logo2 from './download.png'
-import { useState } from 'react';
 export default function HeaderPage({handlePopup}) {
   const navigate = useNavigate()
-  const [popup, setPopup] = useState(false)
-  const [email, setEmail] = useState()
 
   function navigateToAbout() {
      navigate('/aboutus')
