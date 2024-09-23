@@ -1,4 +1,4 @@
-.product-container {
+.order-container {
     margin: auto;
     padding-top: 30px;
     width: 1050px;
@@ -9,7 +9,18 @@
     background-color: #ffffff;
     box-shadow:3px 4px rgba(0, 0, 0, 0.5)
 }
-.products {
+.background-order {
+    margin-top: 0px;
+    display: flex;
+    flex-direction: column;
+    background-image:url('./background-3.png');
+    background-size: cover;
+    background-position: top;
+    padding-bottom: 20px;
+    width: 100vw; /* Full width */
+    height: 20vh;
+}
+.orders {
     width: 200px;
     height :auto;
     margin: 15px;
@@ -20,27 +31,33 @@
     box-shadow:3px 4px rgba(0, 0, 0, 0.5)
 }
 
-.products h2 {
+.orders h2 {
     margin-top: 2px;
     color: #107f78;
     letter-spacing: 1.2px;
     font-family: monospace;
 }
-.products p {
+.orders p {
     font-family: 'Times New Roman', Times, serif;
     color: #43b873;
     margin-top: 3px;
 }
-.product-image {
+.order-image {
     width: 150px;
     height: 150px;
     border-radius: 20px;
 }
-.order-btn-container {
+.order-final-btn-container {
     display: flex;
     justify-content: flex-end;
 }
-.order-btn {
+.order-response-container button {
+    margin-bottom: 5px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+.order-final-btn {
     width: 200px;
     height: 40px;
     background-color: #00cc6c;
@@ -60,10 +77,12 @@
     width: 600px;
     height: autos;
     border-radius: 30px;
-    background-color: #c1f3e9;
+    background-color: #ffffff;
     justify-content: center;
     position: fixed;
+    box-shadow:3px 4px rgba(0, 0, 0, 0.5)
 }
+
 .customer-container {
     display: flex;
     flex-direction: column;
@@ -134,13 +153,238 @@
     width: 400px;
     height: 200px;
     border-radius: 30px;
-    background-color: #c1f3e9;
+    background-color: #ffffff;
     justify-content: center;
     position: fixed;
+    box-shadow:3px 4px rgba(0, 0, 0, 0.5)
 }
 .download-icon {
     width: 20px;
     height: 20px;
     border-radius: 100%;
     border: none;
+}
+
+@media only screen and (max-width:600px){
+    .background-order {
+        margin-top: 0px;
+        display: flex;
+        flex-direction: column;
+        background-image:url('./background-3.png');
+        background-size: cover;
+        background-position: top;
+        padding-bottom: 20px;
+        width: 100vw; /* Full width */
+        height: 30px;
+    }
+    .order-container {
+        margin: auto;
+        padding-top: 10px;
+        width:280px;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        border-radius: 20px;
+        background-color: #ffffff;
+        box-shadow:3px 4px rgba(0, 0, 0, 0.5)
+    }
+    .orders {
+        width: 100px;
+        height :auto;
+        margin: 5px;
+        border-radius: 20px;
+        /* justify-content: center; */
+        padding-bottom: 5px;
+        background-color: rgb(255, 255, 255);
+        box-shadow:3px 4px rgba(0, 0, 0, 0.5)
+    }
+    .Order-Tittle {
+        font-size: 10px;
+        text-decoration: underline;
+    }
+    
+    .orders h2 {
+        margin-top: 2px;
+        color: #107f78;
+        letter-spacing: 1.2px;
+        font-family: monospace;
+        font-size: 8px;
+    }
+    .orders p {
+        font-family: 'Times New Roman', Times, serif;
+        color: #43b873;
+        margin-top: 3px;
+        font-size: 6px;
+    }
+    .orders h4 {
+        font-size: 6px;
+    }
+    .orders input label{
+        font-size: 6px;
+    }
+    .orders label{
+        font-size: 6px;
+    }
+    .order-image {
+        width: 60px;
+        height: 60px;
+        border-radius: 15px;
+    }
+    .order-final-btn-container {
+        display: flex;
+        justify-content: flex-end;
+    }
+    .order-final-btn {
+        width: 100px;
+        height: 20px;
+        background-color: #00cc6c;
+        border: none;
+        border-radius: 20px;
+        color: white;
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: 8px;
+        letter-spacing: 1.8px;
+        margin-bottom: 15px;
+        margin-top: 20px;
+        margin-right: 40px;
+    }
+    .quantity-field {
+        width: 60px;
+        height: 10px;
+        font-size: 6px;
+        text-align: center;
+    }
+    .form-container {
+        top: 20%;
+        left: 15%;
+        width: 200px;
+        height: auto;
+        border-radius: 30px;
+        background-color: #ffffff;
+        justify-content: center;
+        position: fixed;
+        box-shadow:3px 4px rgba(0, 0, 0, 0.5)
+    }
+    
+    .customer-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 20px;
+        /* align-items: center; */
+        padding: 10px;
+        
+    }
+    .forms {
+        display: flex;
+        padding: 5px;
+    }
+    .forms label {
+        text-align: start;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: #01352b;
+        font-size: 5px;
+    }
+    .forms input {
+        margin-left: 5px;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        background: none;
+        font-size: 5px;
+    }
+    .submit-btn-container {
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 10px;
+        padding-bottom: 10px;
+        
+    }
+    .submit-btn-container button {
+        border-radius: 8px;
+        width: 50px;
+        height: 12px;
+        background-color: #01352b;
+        font-weight: bold;
+        color: white;
+        font-size: 5px;
+        letter-spacing: 1.8px;
+    }
+    .close-btn-container {
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 10px;
+        padding-top: 10px;
+    }
+    .close-btn-container button {
+        border-radius: 8px;
+        width: 60px;
+        background-color: #640000;
+        font-weight: bold;
+        color: white;
+        font-size: 6px;
+        letter-spacing: 1.8px;
+    }
+    .customer-response {
+        font-size: 6px;
+        margin-top: 20px;
+    }
+    .order-response {
+        font-size: 6px;
+    }
+    .close-btn {
+        border-radius: 8px;
+        width: 40px;
+        height: 12px;
+        background-color: #640000;
+        font-weight: bold;
+        color: white;
+        font-size: 6px;
+        letter-spacing: 1.8px;
+        margin-bottom: 10px;
+    }
+    
+    .order-response-container {
+        top: 20%;
+        left: 15%;
+        width: 200px;
+        height: auto;
+        border-radius: 30px;
+        background-color: #ffffff;
+        justify-content: center;
+        position: fixed;
+        box-shadow:3px 4px rgba(0, 0, 0, 0.5)
+    }
+    .order-response-container button {
+        font-size: 6px;
+        margin-bottom: 5px;
+        border: none;
+        background: none;
+    }
+    .download-icon {
+        width: 5px;
+        height: 5px;
+        border: none;
+        background-color: white;
+        margin-bottom: 5px;
+    }
+
+    .loading-order-style {
+        margin: auto;
+        position: fixed;
+        top: 40%;
+        left: 40%;
+    }
+    .back-btn {
+        display: flex;
+        justify-content: flex-start;
+        
+    }
+    .back-btn button {
+        background-color: rgb(120, 110, 0);
+        margin-right: 15px;
+        font-weight: bold;
+        color: white;
+        font-size: 6px;
+    }
 }

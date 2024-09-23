@@ -171,3 +171,230 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+@media only screen and (max-width:600px){ 
+    .Search-Bar {
+        margin-top: 105px;
+        display: flex;
+        /* width: 100%; */
+        box-sizing: border-box;
+        flex-wrap: wrap;
+        /* justify-content: space-between; */
+        background-color: rgb(255, 255, 71);
+    }
+    .Search-Container {
+        width: 70px;
+    }
+    .Search {
+        height: 15px;
+        width: 40px;
+        border-radius: 20px 00px 0px 20px;
+        text-align: center;
+        font-size: 6px;
+    }
+    .Search-btn {
+        width: 25px;
+        height: 15px;
+        background-color: #0f3806;
+        color: white;
+        font-size: 6px;
+        font-weight: bold;
+        border-radius: 0px 20px 20px 0px;
+        letter-spacing: 1.1px;
+    }
+    .SelectBox {
+        background-color: #0f3806;
+        color: white;
+        width: 60px;
+        height: 15px;
+        margin-left: 10px;
+        align-self: center;
+        border-radius: 5px;
+        padding: 2px;
+        font-size: 6px;
+    }
+    
+    .popup-container {
+        top: 40%;
+        left: 8%;
+        width: 250px;
+        height: 60px;
+        border-radius: 15px;
+        background-color: rgba(49, 105, 53, 0.624);
+        align-content: center;
+        position: fixed;
+    }
+    .popup-container input {
+        width: 80px;
+        font-size: 6px;
+    }
+    .popup-container button {
+        width: 20px;
+        font-size: 6px;
+        text-align: center;
+    }
+    .Background-Container{
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        background-image:url('./Background-Image.png');
+        background-size: cover;
+        background-position: center;
+        padding-bottom: 20px;
+        /* width: 100%;  */
+        box-sizing: border-box;
+        height: 20vh;
+    }
+    .Gif-Container {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .background {
+      margin-top: 20px;
+    }
+    
+    .Gif-Diwali {
+        margin-top: 20px;
+        margin-left: 5px;
+        margin-right: 5px;
+        width: 30px;
+        height: 30px;
+    }
+    /* .offer-tag {
+       width: 100%;
+       height: 200px;
+    } */
+    .contact-container {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        font-weight: bold;
+        margin-right: 5px;
+    }
+    .contact-1 {
+        display: flex;
+    }
+    .contact-2 {
+        display: flex;
+    }
+    .contact {
+        margin-top: 10px;
+        margin-right: 2px;
+        width: 10px;
+        height: 10px;
+    }
+    .number {
+        margin-top: 12px;
+        font-size: 6px;
+    }
+    .Product-Mobile {
+        font-size: 10px;
+        text-decoration: underline;
+    }
+    
+    .category-container {
+        margin: auto;
+        padding-top: 30px;
+        width: 280px;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        border-radius: 30px;
+        background-color: #ffffff;
+        box-shadow:3px 4px rgba(0, 0, 0, 0.5)
+    }
+    
+    .button-category {
+        width: 80px;
+        height: 80px;
+        margin: 20px 20px 1px 20px;
+        border: none;
+        background:none;
+    }
+    .button-category :hover {
+       width: 80px;
+       height: 80px;
+       transition: 0.29s;
+    }
+    .categoryImage {
+        width: 60px;
+        height: 60px;
+        border-radius: 15px;
+        box-shadow: 3px 4px rgba(0, 0, 0, 0.5)
+    }
+    
+    .category-name-container {
+        text-align: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 8px;
+    }
+    
+    .horizontal-line {
+        margin-left: 30px;
+    }
+    
+    .footer-container {
+        box-sizing: border-box;
+        height: auto;
+        background-color: rgb(255, 255, 71);
+        padding-top: 5px;
+        padding-bottom: 5px;
+        margin-top: 20px;
+    }
+    .footer-container h3 {
+        font-style: italic;
+        font-size: 8px;
+        letter-spacing: 0.33px;
+    }
+    .footer-content-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding-left: 4px;
+        padding-right: 4px;
+    }
+    .terms-condition {
+        display: flex;
+        flex-direction: column;
+        text-align: start;
+        padding: 2px;
+        font-size: 5px;
+    }
+    
+    .terms-condition h4 {
+        text-decoration: underline;
+        font-size: 5px;
+    }
+    .terms-condition p {
+        margin: 2px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: 5px;
+    }
+    .signature {
+        font-size: 6px;
+    }
+    .final-thanks {
+        font-size: 8px;
+    }
+    .loading-style {
+        position: fixed;
+        top: 40%;
+        left: 40%;
+        
+    }
+    .loading {
+        width: 30px;
+        height: 30px;
+    }
+
+    .offer-img {
+        width: 25px;
+        height: 25px;
+        position: fixed;
+        left: 2%;
+        top: 55%;
+    }
+    
+    
+}
+

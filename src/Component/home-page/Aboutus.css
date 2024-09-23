@@ -1,0 +1,62 @@
+@media only screen and (max-width:600px){
+    .title {
+        font-size: 16px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: #ac5e00;
+        margin-top: 120px;
+    }
+    
+    .start-para {
+        box-sizing: border-box;
+        font-size: 6px;
+        font-family:cursive;
+        margin-left: 12px;
+        padding: 10px;
+    }
+
+    .about-background {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        background-image:url('./Background-Image.png');
+        background-size: cover;
+        background-position: center;
+        padding-bottom: 20px;
+        width: 100%; /* Full width */
+        height: 20vh;
+    }
+    .footer-container-aboutus {
+        background-color: #00c273;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+    .list-contact-us {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        margin-left: 2px;
+    }
+    .heading {
+        font-size: 8px;
+        text-decoration: underline;
+        font-weight: bold;
+        font-style: italic;
+        letter-spacing: 1.4px;
+    }
+    .list-contact-us li {
+        font-size: 5px;
+        text-align: start;
+        font-weight: bold;
+        color: white;
+        letter-spacing: 1.2px;
+        padding: 4px;
+        margin: 0px 1px 0px 3px;
+    }
+
+    .heading-container {
+        display: flex;
+        justify-content: flex-start;
+        margin-left: 30px;
+    }
+}
+

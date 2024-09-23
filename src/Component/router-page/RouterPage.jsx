@@ -5,6 +5,7 @@ import OrderPage from '../order-page/OrderPage'
 import OrderHistory from '../order-history/OrderHistory'
 import LoginPage from '../admin-page/login-page/LoginPage'
 import AdminHome from '../admin-page/admin-home/AdminHome'
+import AboutUs from '../home-page/AboutUs'
 
 export default function RouterPage() {
     return(
@@ -17,6 +18,7 @@ export default function RouterPage() {
                 <Route path ='/history/:email' element={<OrderHistory/>}></Route>
                 <Route path='/admin/login' element={<LoginPage/>}></Route>
                 <Route path='/admin/home' element={<AdminHome/>}></Route>
+                <Route path='/aboutus' element={<AboutUs/>}></Route>
                 {/* <PrivateRoute path="/admin/home" element={<AdminHome />} /> */}
                 
             </Routes>

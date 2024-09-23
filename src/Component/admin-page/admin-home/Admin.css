@@ -1,10 +1,143 @@
-.Option-Bar {
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    width: 100px;
-    margin-left: 0px;
-    margin-top: 30px;
-    height: auto;
-    background-color: rgb(144, 144, 144);
+@media only screen and (max-width:600px){
+    .Option-Bar-Container {
+        display: flex;
+        justify-content: space-evenly;
+    }
+    .option-bar {
+        display: flex;
+        flex-direction: column;
+        padding-top: 10px;
+        width: 100px;
+        margin-left: 0px;
+        margin-top: 10px;
+        height: 300px;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        background-color: rgb(255, 255, 255);
+        box-shadow:3px 4px rgba(0, 0, 0, 0.5)
+    }
+    
+    .option-bar button {
+        margin-top: 50px;
+        font-size: 8px;
+        border-radius: 12px;
+        background-color: #02484f;
+        color: white;
+        font-weight: bold;
+        letter-spacing: 1.1px;
+    }
+    
+    .dashboard-container {
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       width: 200px;
+       height: 400px;
+       margin: auto;
+    }
+    .dashboard-container button {
+        font-size: 7px;
+        color: white;
+        font-weight: bold;
+        letter-spacing: 1.2px;
+    }
+    .upper-btn button {
+        width: 200px;
+        height: 100px;
+        background-color: #995400;
+    }
+    .lower-btn {
+        display: flex;
+    }
+    .lower-btn button {
+        width: 100px;
+        height: 100px;
+        background-color: #995400;
+    }
+    .edit-container {
+        width: 200px;
+        height: 550px;
+    }
+    .edit-container h1 {
+        font-size: 10px;
+    }
+    .category-edit-container {
+        display: flex;
+        flex-direction: column;
+    }
+    /* .category-edit-container input {
+        width: 100px;
+        font-size: 6px;
+    } */
+    .category-edit {
+        display: flex;
+    }
+    .category-edit label {
+        font-size: 6px;
+    }
+    .category-edit input {
+        width: 90px;
+        height: 10px;
+        font-size: 6px;
+        margin-left: 10px;
+    }
+    .category-edit-btn {
+        font-size: 6px;
+        font-weight: bold;
+        background-color: #02484f;
+        border: none;
+        color: white;
+        padding: 5px;
+    }
+    .edit-product-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .edit-product-container label {
+        font-size: 6px;
+    }
+    .edit-product-container input {
+        width: 100px;
+        height: 15px;
+        margin: auto;
+        margin-bottom: 5px;
+        font-size: 6px;
+    }
+    .product-save-btn {
+        font-size: 6px;
+        font-weight: bold;
+        background-color: #02484f;
+        border: none;
+        color: white;
+        padding: 5px;
+    }
+    .select-box-admin {
+        font-size: 6px;
+        background-color: #02484f;
+        color: white;
+        font-style: oblique;
+    }
+
+    .table {
+        border-collapse: collapse;
+        width: 200px;
+        border: 1px solid black;
+    }
+    .table th {
+        border: 1px solid black;
+        font-size: 5px;
+        background-color: #12757f;
+        color: white;
+    }
+    .table td {
+        border: 0.7px solid black;
+        font-size: 4px;
+        background-color: #cef2f5;
+    }
+    .table button {
+        font-size: 4px;
+        
+    }
 }
+

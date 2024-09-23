@@ -1,6 +1,7 @@
 import axios from "axios"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import './LoginPage.css'
 
 export default function LoginPage() {
     const [username, setUsername] = useState("")
@@ -12,7 +13,7 @@ export default function LoginPage() {
         axios.post('http://localhost:8080/login', null, {
             params: {
                 username: username,
-                password: password
+                password: password 
             }
         }).then(response =>{
             localStorage.setItem('token',response.data)
@@ -24,16 +25,20 @@ export default function LoginPage() {
     }
     return (
         <div className="LoginPage">
-            <div>
+            <div className="login-container">
                <label>User Name :</label>
                <input type="text" onChange={(e) => setUsername(e.target.value)}></input>
                <br></br>
 
                <label>Password :</label>
-               <input type="password" onChange={(e) => setPassword(e.target.value)} />
+               <input type="password" onChange={(e) => setPassword(e.target.value)}
+               style={{marginLeft:'5px'}} />
 
                <br></br>
-               <button onClick={validateuser}>OK</button>
+               <div className="admin-btn-container">
+                 <button onClick={validateuser}>OK</button>
+               </div>
+              
             </div>
         </div>
     )

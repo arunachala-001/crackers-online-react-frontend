@@ -1,10 +1,12 @@
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { fetchOrdersbyEmailId } from "../APIs/Controller"
 import { useEffect, useState } from "react"
 import axios from "axios"
+import './OrderHistory.css'
 
 export default function OrderHistory() {
     const {email} = useParams()
+    const navigate = useNavigate()
 
     const [orderHistory, setOrderHistory] = useState([])
 
@@ -36,25 +38,38 @@ export default function OrderHistory() {
           link.parentNode.removeChild(link)
         }).catch(error => console.log(error))
     }
+    function navigateToHome() {
+       navigate('/')
+    }
 
     return (
         <div className="OrderHistory">
-            <h1>Your Orders</h1>
+            <div className="order-background"></div>
+            <button onClick={navigateToHome}
+             style={{border:'none', backgroundColor:'yellow', color:'white', marginLeft:'2px'}}>Back</button>
+            <h1 className="history-heading">Your Orders</h1>
+            <div className="history-container">
             {orderHistory.map((customer) => (
                 <div key={customer.id}>
-                   {customer.orderedProductList.map((o) =>(
-                    <div key={o.id}>
-                      <h3>{o.productName}</h3>
-                      <h3>{o.productPrice}</h3>
-                      <h3>{o.description}</h3>
-                      <h3>{o.quantity}</h3>
-                      <h3>{o.total}</h3>
-                      <h3>{o.orderedDate}</h3>
-                    </div>
+                    <div className="history">
+                     {customer.orderedProductList.map((o) =>(
+                        <div key={o.id}>
+                        <h3>Product Name - {o.productName}</h3>
+                        <h3>Product Price - ₹{o.productPrice}</h3>
+                        <h3>Description - {o.description}</h3>
+                        <h3>Quantity - {o.quantity}</h3>
+                        <h3>Total - ₹{o.total}</h3>
+                        <h3>Orderd On - {o.orderedDate}</h3>
+                        <hr />
+                     </div>
                    ))}
-                   <button onClick={() =>downloadInvoice(customer.id)}>Your Invoice</button>
+                   <button className="history-btn"
+                    onClick={() =>downloadInvoice(customer.id)}>Your Invoice</button>
+                    </div>
+                   
                 </div>
             ))}
+           </div> 
         </div>
     )
 }

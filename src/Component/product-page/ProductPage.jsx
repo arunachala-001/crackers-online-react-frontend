@@ -68,17 +68,15 @@ export default function ProductPage() {
             <div className="banner" onClick={offPopUp}>
                 <div className="search-box">
                   <img src={Offerimg} alt="offer-tag" className="offer-tag"/>  
-                  {/* <label htmlFor="">Search Products</label>  
-                  <input type="search" placeholder="Search Products..."></input> */}
                 </div>
-                <div className="sort-box">
+                {/* <div className="sort-box">
                   <label>Sort by price</label>
                   <select>
                      <option value="Default">Default</option>
                      <option value="Price">High to Low</option>
                      <option value="Price">Low to High</option>
                   </select>
-                </div>
+                </div> */}
             
             </div>
             {popup && (
@@ -88,13 +86,14 @@ export default function ProductPage() {
                   <button onClick={navigateToHistory}>OK</button>
                 </div>
               )}
-            <h2 style={{textDecoration:'underline'}}>List of Products</h2>
+            <h2 style={{textDecoration:'underline'}} className="product-heading">List of Products</h2>
+
             <div className="product-container" onClick={offPopUp}>
             {product.map(p => (
                 <div key={p.id}>
                     <div className="products">
                        <img src={`http://localhost:8080/image/${p.image}`} className="product-image"
-                       alt={p.productName}></img>
+                        alt={p.productName}></img>
                     <hr />
                    
                    <h2>{p.productName}</h2>
@@ -104,12 +103,11 @@ export default function ProductPage() {
                    </div>
                    <p>{p.description}</p>
                    <p>Discount : {p.discount}%</p>
-                   <button
+                   <button className="product-btn"
                     style={{
                         backgroundColor: selectedId.includes(p.id) ? '#cf0000' : '#a29a00',
                       }}
                     onClick={() => handleProduct(p.id)}>{selectedId.includes(p.id)? 'Remove From Cart': 'Add to Cart'}</button>
-                   {/* <button onClick={() => navigateToOrder(p.id)}>Add to cart</button> */}
                     </div>    
                     
                 </div>
@@ -139,7 +137,7 @@ export default function ProductPage() {
                     <h4>For VENKATA SAI TRADERS</h4>
                  </div>
                  </div>
-                 <h2>Wish you a safe and prosperous Diwali</h2>
+                 <h2 className="final-thanks">Wish you a safe and prosperous Diwali</h2>
                </div>
 
         </div>

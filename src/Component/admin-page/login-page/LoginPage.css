@@ -1,0 +1,43 @@
+@media only screen and (max-width:600px){
+    .login-container {
+        width: 300px;
+        height: 100px;
+        margin: auto;
+        background-color:white;
+        align-content: center;
+        margin-top: 200px;
+        box-shadow:3px 4px rgba(0, 0, 0, 0.5);
+        border-radius: 15px;      
+    }
+    
+    .login-container label {
+        font-size: 7px;
+        letter-spacing: 1.1px;
+        margin-right: 3px;
+    }
+    
+    .login-container input {
+        width: 100px;
+        height: 15px;
+        border-radius: 10px;
+        font-size: 6px;
+        text-align: center;
+    }
+    .admin-btn-container {
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 80px;
+        margin-top: 5px;
+    }
+    .admin-btn-container button {
+        width: 40px;
+        font-size: 6px;
+        background-color: blue;
+        font-weight: bold;
+        border: none;
+        color: white;
+        letter-spacing: 1.1px;
+        border-radius: 10px;
+    }
+}
+

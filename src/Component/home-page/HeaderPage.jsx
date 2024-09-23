@@ -7,6 +7,17 @@ export default function HeaderPage({handlePopup}) {
   const navigate = useNavigate()
   const [popup, setPopup] = useState(false)
   const [email, setEmail] = useState()
+
+  function navigateToAbout() {
+     navigate('/aboutus')
+  }
+  function navigateToContact() {
+    navigate('/aboutus')
+  }
+
+  function navigateToHome() {
+    navigate('/')
+  }
     return (
         <div className='HeaderPage'>
           <div className='model-header-page'>
@@ -21,10 +32,10 @@ export default function HeaderPage({handlePopup}) {
               </div>
             </div> 
               <div className="tags">
-                <button className="tag">Home</button>
+                <button className="tag" onClick={navigateToHome}>Home</button>
                 <button className="tag" onClick={handlePopup}>Your Orders</button>
-                <button className="tag">About Us</button>
-                <button className="tag">Contact Us</button>
+                <button className="tag" onClick={navigateToAbout}>About Us</button>
+                <button className="tag" onClick={navigateToContact}>Contact Us</button>
               </div>
              
             </div> 
