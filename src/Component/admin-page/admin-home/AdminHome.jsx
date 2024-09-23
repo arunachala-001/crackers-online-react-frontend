@@ -91,7 +91,11 @@ export default function AdminHome() {
                 },
         }).then(response => {
             setProductResponse(response.data)
-        }).catch(error => console.log(error)).finally(()=> setProductName(""), 
+            if(response.status === 200 || response.status === 201) {
+               window.location.reload()
+            }
+            
+        }).catch(error => setProductResponse(error.data)).finally(()=> setProductName(""), 
         setProductPrice(""), setProductDiscount(""), setDescription(""),
         setOrginalPrice(""), setImage(null))
        
