@@ -22,6 +22,8 @@
     color: white;
     font-weight: bold;
     border-radius: 0px 20px 20px 0px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 .SelectBox {
     background-color: #0f3806;
@@ -32,6 +34,8 @@
     align-self: center;
     border-radius: 10px;
     padding: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 .offer-img {
     width: 75px;
@@ -183,28 +187,26 @@
     .Search-Bar {
         margin-top: 105px;
         display: flex;
-        /* width: 100%; */
         box-sizing: border-box;
         flex-wrap: wrap;
-        /* justify-content: space-between; */
         background-color: rgb(255, 255, 71);
     }
     .Search-Container {
         width: 100px;
     }
     .Search {
-        height: 15px;
+        height: 20px;
         width: 70px;
         border-radius: 20px 00px 0px 20px;
         text-align: center;
-        font-size: 6px;
+        font-size: 8px;
     }
     .Search-btn {
         width: 30px;
-        height: 15px;
+        height: 20px;
         background-color: #0f3806;
         color: white;
-        font-size: 6px;
+        font-size: 8px;
         font-weight: bold;
         border-radius: 0px 20px 20px 0px;
         letter-spacing: 1.1px;
@@ -212,33 +214,41 @@
     .SelectBox {
         background-color: #0f3806;
         color: white;
-        width: 60px;
-        height: 15px;
+        width: 70px;
+        height: 20px;
         margin-left: 10px;
         align-self: center;
         border-radius: 5px;
         padding: 2px;
-        font-size: 6px;
+        font-size: 10px;
     }
     
     .popup-container {
-        top: 40%;
-        left: 13%;
+        top: 45%;
+        left: 12%;
         width: 250px;
-        height: 60px;
+        height: 150px;
         border-radius: 15px;
-        background-color: rgba(49, 105, 53, 0.624);
+        background-color: rgb(255, 255, 255);
         align-content: center;
         position: fixed;
+        transition: 0.8s;
+        box-shadow:3px 4px rgba(0, 0, 0, 0.5)
     }
     .popup-container input {
-        width: 80px;
-        font-size: 6px;
+        width: 100px;
+        font-size: 10px;
+        background-color: white;
+        border-radius: 10px 0px 0px 10px;
     }
     .popup-container button {
-        width: 20px;
-        font-size: 6px;
+        width: 30px;
+        font-size: 10px;
         text-align: center;
+        background-color: white;
+        color: blue;
+        border-radius: 0px 10px 10px 0px;
+        
     }
     .Background-Container{
         margin-top: 10px;
@@ -265,13 +275,10 @@
         margin-top: 20px;
         margin-left: 5px;
         margin-right: 5px;
-        width: 30px;
-        height: 30px;
+        width: 40px;
+        height: 40px;
     }
-    /* .offer-tag {
-       width: 100%;
-       height: 200px;
-    } */
+    
     .contact-container {
         display: flex;
         flex-direction: column;
@@ -292,41 +299,48 @@
         height: 10px;
     }
     .number {
-        margin-top: 12px;
-        font-size: 6px;
+        margin-top: 10px;
+        font-size: 8px;
     }
     .Product-Mobile {
-        font-size: 10px;
+        font-size: 14px;
         text-decoration: underline;
+        letter-spacing: 1.2px;
     }
     
     .category-container {
         margin: auto;
         padding-top: 30px;
-        width: 280px;
+        width: 100%;
         display: flex;
         flex-wrap: wrap;
         align-content: center;
         border-radius: 30px;
         background-color: #ffffff;
-        box-shadow:3px 4px rgba(0, 0, 0, 0.5)
+        /* box-shadow:3px 4px rgba(0, 0, 0, 0.5) */
     }
     
     .button-category {
-        width: 80px;
+        /* width: 80px;
         height: 80px;
         margin: 20px 20px 1px 20px;
+        border: none;
+        background:none; */
+
+        width: 90px;
+        height: 80px;
+        margin: 20px 6px 1px 6px;
         border: none;
         background:none;
     }
     .button-category :hover {
-       width: 80px;
-       height: 80px;
+       width: 100px;
+       height: 100px;
        transition: 0.29s;
     }
     .categoryImage {
-        width: 60px;
-        height: 60px;
+        width: 70px;
+        height: 70px;
         border-radius: 15px;
         box-shadow: 3px 4px rgba(0, 0, 0, 0.5)
     }
@@ -334,7 +348,7 @@
     .category-name-container {
         text-align: center;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
-        font-size: 8px;
+        font-size: 9px;
     }
     
     .horizontal-line {

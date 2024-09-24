@@ -8,8 +8,8 @@
     
     .start-para {
         box-sizing: border-box;
-        font-size: 6px;
-        font-family:cursive;
+        font-size: 9px;
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
         margin-left: 12px;
         padding: 10px;
     }
@@ -37,14 +37,14 @@
         margin-left: 2px;
     }
     .heading {
-        font-size: 8px;
+        font-size: 10px;
         text-decoration: underline;
         font-weight: bold;
         font-style: italic;
         letter-spacing: 1.4px;
     }
     .list-contact-us li {
-        font-size: 5px;
+        font-size: 8px;
         text-align: start;
         font-weight: bold;
         color: white;

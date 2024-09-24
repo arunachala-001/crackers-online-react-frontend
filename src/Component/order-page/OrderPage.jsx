@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import './OrderPage.css'
 import { BounceLoader } from 'react-spinners';
+import backgrd from './background-3.png'
 
 
 export default function OrderPage() {
@@ -76,6 +77,8 @@ export default function OrderPage() {
                 setOrderResponse(response.data)
                 if(response.status ===200 || response.status ===201) {
                     setOrderTrue(true)
+                } else {
+                  setOrderResponse("Order Failed, Try again")
                 }
              }).finally(() => setLoading(false))
            }
@@ -112,7 +115,7 @@ export default function OrderPage() {
                     setUserId(response.data.substring(33))
                     // setCustomerSaved(true)
                 } else {
-                    setUserResponse(response.data)
+                    setUserResponse("Something went wrong")
                 }                
             }).finally(() => setLoading(false))           
         } catch (error) {
@@ -139,6 +142,7 @@ export default function OrderPage() {
 
     function closeCustomerTab() {
         setCustomer(false)
+        setOrderTrue(false)
     }
 
     function navigateToHome() {
@@ -148,7 +152,7 @@ export default function OrderPage() {
         <div className="OrderPage">
             <div className="background-order"></div> 
             <h1 className="Order-Tittle">Order Details</h1>
-            <div className="back-btn">
+            <div className="back-btn-order">
               <button onClick={navigateToHome}>Back</button>
             </div>
             <div className="order-container" onClick={closeCustomerTab}>
@@ -179,10 +183,6 @@ export default function OrderPage() {
                   <p style={{fontStyle:'italic', fontWeight:'bold', color:'#07b441'}} className="order-response">{orderResponse}</p>
                   <div style={{display:'flex', justifyContent:'center'}}>
                   <button htmlFor="" style={{textDecoration:'underline', marginRight:'20px'}} onClick={downloadInvoice}>Download Invoice</button>
-                  {/* <button onClick={downloadInvoice}>
-                    <img  className="download-icon"
-                    src={downloadIcon} alt="" />
-                  </button> */}
                   </div>
                   
                 </div>
@@ -208,7 +208,9 @@ export default function OrderPage() {
                     ) : (
                         <>
                         <div className="close-btn-container">
-                              <button onClick={closeCustomerTab}>Close</button>
+                              <button onClick={closeCustomerTab}>
+                              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAMAAABC4vDmAAAAYFBMVEX/QUH/////NTX/8/P/7e3/MDD/+Pj/ODj/c3P/Pj7/Ozv/a2v/f3//dXX/cXH/eHj/Y2P/paX/ycn/W1v/nJz/r6//VVX/4eH/T0//l5f/KSn/hob/1tb/q6v/s7P/5ubwMLtpAAAD/ElEQVR4nO1c25arIAxVFFCrrdVetPby/385WusUNbbiAOacxX6bNYNs4yaEkInj9vHI9nFeOMZQ5PE+ewxIOOIPLIsLQnlojpPjhJySIs7YBCnvnl7MEnoTu+R3DyJ1DaJoDUYtojC4jkndOF+PUgPObwNS7EBX+XAiQloykRSL6dqUGtCYCaRKFJxqVuWb1A0Jp5rVrSN1jVbXU4eQX1tSXrDyuhPBA+9J6o7GTg3Ce0OK5Sv6zDGinNWkssvaPPq4ZDWpGJGiGvDYdR4FKknVoioeTkbWZjEEyZw9GsfZge4dbJJqROXkyCRViyp3DMbjc4GQkoWFhYWFhcUnRDUWxjlhM1YtmxYkPRzL06KQkJ/K4yHVEHfz2K8P1OdkQfRMknM91Fcf49KqzdKwVJoVzV9DK8XHAV51mVI/lvwMZOd3ed5Kqa1o9c7eehspVmTzzrAqtRWvxIyylK1I7AtDFdqKxL0sd22r2S9MU683lFWK1mCU+m4fXjLz0STxBkP9VI2/ig7uEDN1Jeqpw0ERqePoyfN01dfTC0dFpMrxo13/u63IBuDklmqkHp7OwMO9b76djvTU4HxSlCbgCQMe73/27XS0PBqwRJ1PyMEJPumK7CA7fXkROVB4imldwXry1N62SE4i/RILWcXw5wCnIaCePNmtfAYrWLhbYCKyhV7A0xHl0QC01Xg58S1opyXh4XdM6Go3MMDEulOtp9/poG3D9ftfkIB2kg4NJVgBG2ytKzGSoRvI0UoGhpKsAtAM70iGw38w/MRqMQzaXoYIXpPC627BYUOS1Q4yxaM1BdkNC0SedtJ/aw7r6hkh04lfGbj9IaCt6jU4se706qkDrCuWptC6066nDrBJPNBnQtuQLlYQAYhoYPA2kYO6GtvJjJ46kC0koAHAEEIrK3B37tvJhC/og37TlaZY5TPIFnLfv3iY1LjACgycOjuZ1bjAalpXK+ipA51ag2y7YmEBfJrQc0b4p0lh/HwYhY7RJXCEzhM+MIu2Mr/NYNyQMYYus4M8g8VZ88PhubcAKjjhOzhgPGLJHkb1JYEETgiP7RgTHBhTQST5kjSb0JVOz4AxvYgxEYsxZT2R3B+HTQaT+3+/BlFvK4wXRlN6WvNqDeMlJMbrWowX2yhLABQXS/zPZSUoC3AwliqNi7rmL2xtRV04y99wFgriLKnEWXyKs0wXZ0Hzs/R7aecCbaXfFhYWFhYWFvqA8H+2C5z/cI+yNQHKJg4ZOlIkw9kYBGULFZzNZlC25XHvqEi1DYxwtnpC2RQLZ/sw1z0gYSU2WsPZkg5l875GVxG6NofNGkxCdA0hcbbOdNsmo9R8k1H6ocnoE2u0Y70Oi1F+APnRM7Q8XJNxAAAAAElFTkSuQmCC" alt="" />
+                              </button>
                             </div>
                           <div className="customer-container">
                             
@@ -253,7 +255,107 @@ export default function OrderPage() {
                 </div>
             )}
 
-            
+            {/* ---------------------Testing--------------------------- */}
+            {/* <div className="order-container">
+                    <div className="orders">
+                       <img src={backgrd}
+                       className="order-image" alt="Crackling Sparkles"></img>
+                       <hr />
+                       <h2>Crackling Sparkles</h2>
+                      <label style={{color:'#43b873'}}>Select Quantity</label>
+                      <input type="number" className="quantity-field"></input>
+                      <h4>Price :₹180</h4>
+                      <p>30cm 1 Box</p>
+                   </div>
+                    <div className="orders">
+                       <img src={backgrd}
+                       className="order-image" alt="Crackling Sparkles"></img>
+                       <hr />
+                       <h2>Crackling Sparkles</h2>
+                      <label style={{color:'#43b873'}}>Select Quantity</label>
+                      <input type="number" className="quantity-field"></input>
+                      <h4>Price :₹180</h4>
+                      <p>30cm 1 Box</p>
+                   </div>
+                    <div className="orders">
+                       <img src={backgrd}
+                       className="order-image" alt="Crackling Sparkles"></img>
+                       <hr />
+                       <h2>Crackling Sparkles</h2>
+                      <label style={{color:'#43b873'}}>Select Quantity</label>
+                      <input type="number" className="quantity-field"></input>
+                      <h4>Price :₹180</h4>
+                      <p>30cm 1 Box</p>
+                   </div>
+                    <div className="orders">
+                       <img src={backgrd}
+                       className="order-image" alt="Crackling Sparkles"></img>
+                       <hr />
+                       <h2>Crackling Sparkles</h2>
+                      <label style={{color:'#43b873'}}>Select Quantity</label>
+                      <input type="number" className="quantity-field"></input>
+                      <h4>Price :₹180</h4>
+                      <p>30cm 1 Box</p>
+                   </div>
+            </div> */}
+            {/* ------------Customer------------------ */}
+            {/* <div className="form-container">
+              
+            <div className="close-btn-container">
+                        <button>
+                          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAMAAABC4vDmAAAAYFBMVEX/QUH/////NTX/8/P/7e3/MDD/+Pj/ODj/c3P/Pj7/Ozv/a2v/f3//dXX/cXH/eHj/Y2P/paX/ycn/W1v/nJz/r6//VVX/4eH/T0//l5f/KSn/hob/1tb/q6v/s7P/5ubwMLtpAAAD/ElEQVR4nO1c25arIAxVFFCrrdVetPby/385WusUNbbiAOacxX6bNYNs4yaEkInj9vHI9nFeOMZQ5PE+ewxIOOIPLIsLQnlojpPjhJySIs7YBCnvnl7MEnoTu+R3DyJ1DaJoDUYtojC4jkndOF+PUgPObwNS7EBX+XAiQloykRSL6dqUGtCYCaRKFJxqVuWb1A0Jp5rVrSN1jVbXU4eQX1tSXrDyuhPBA+9J6o7GTg3Ce0OK5Sv6zDGinNWkssvaPPq4ZDWpGJGiGvDYdR4FKknVoioeTkbWZjEEyZw9GsfZge4dbJJqROXkyCRViyp3DMbjc4GQkoWFhYWFhcUnRDUWxjlhM1YtmxYkPRzL06KQkJ/K4yHVEHfz2K8P1OdkQfRMknM91Fcf49KqzdKwVJoVzV9DK8XHAV51mVI/lvwMZOd3ed5Kqa1o9c7eehspVmTzzrAqtRWvxIyylK1I7AtDFdqKxL0sd22r2S9MU683lFWK1mCU+m4fXjLz0STxBkP9VI2/ig7uEDN1Jeqpw0ERqePoyfN01dfTC0dFpMrxo13/u63IBuDklmqkHp7OwMO9b76djvTU4HxSlCbgCQMe73/27XS0PBqwRJ1PyMEJPumK7CA7fXkROVB4imldwXry1N62SE4i/RILWcXw5wCnIaCePNmtfAYrWLhbYCKyhV7A0xHl0QC01Xg58S1opyXh4XdM6Go3MMDEulOtp9/poG3D9ftfkIB2kg4NJVgBG2ytKzGSoRvI0UoGhpKsAtAM70iGw38w/MRqMQzaXoYIXpPC627BYUOS1Q4yxaM1BdkNC0SedtJ/aw7r6hkh04lfGbj9IaCt6jU4se706qkDrCuWptC6066nDrBJPNBnQtuQLlYQAYhoYPA2kYO6GtvJjJ46kC0koAHAEEIrK3B37tvJhC/og37TlaZY5TPIFnLfv3iY1LjACgycOjuZ1bjAalpXK+ipA51ag2y7YmEBfJrQc0b4p0lh/HwYhY7RJXCEzhM+MIu2Mr/NYNyQMYYus4M8g8VZ88PhubcAKjjhOzhgPGLJHkb1JYEETgiP7RgTHBhTQST5kjSb0JVOz4AxvYgxEYsxZT2R3B+HTQaT+3+/BlFvK4wXRlN6WvNqDeMlJMbrWowX2yhLABQXS/zPZSUoC3AwliqNi7rmL2xtRV04y99wFgriLKnEWXyKs0wXZ0Hzs/R7aecCbaXfFhYWFhYWFvqA8H+2C5z/cI+yNQHKJg4ZOlIkw9kYBGULFZzNZlC25XHvqEi1DYxwtnpC2RQLZ/sw1z0gYSU2WsPZkg5l875GVxG6NofNGkxCdA0hcbbOdNsmo9R8k1H6ocnoE2u0Y70Oi1F+APnRM7Q8XJNxAAAAAElFTkSuQmCC" alt="" />
+                        </button>
+            </div>
+                          <div className="customer-container">
+                            
+                           <div className="forms">
+                             <label>First Name    :</label>
+                             <input type="text"></input>
+                           </div>
+                           <div className="forms">
+                             <label>Last Name     :</label>
+                             <input type="text"></input>
+                           </div>
+                           <div className="forms">
+                             <label>Email Address :</label>
+                             <input type="text"></input>
+                           </div>
+                           <div className="forms">
+                             <label>Mobile Number :</label>
+                             <input type="text"></input>
+                           </div>
+                           <div className="forms">
+                             <label>Address       :</label>
+                             <input type="box"></input>
+                           </div>
+
+                           <div className="forms">
+                             <label>Pin Code      :</label>
+                             <input type="text"></input>
+                           </div>
+                           
+                         </div>
+                         <div className="submit-btn-container">
+                            <button>SUBMIT</button>
+                        </div>
+
+            </div> */}
+
+            {/* <div className="form-container">
+
+            <p style={{fontStyle:'italic', alignSelf:'center', fontWeight:'bold', color:'#07b441'}} className="customer-response">User Saved Successfully</p>
+            <button className="close-btn" onClick={() => setCustomer(false)}>Close</button>
+            </div> */}
+{/* 
+                  <div className="order-response-container">
+                  <p style={{fontStyle:'italic', fontWeight:'bold', color:'#07b441'}} className="order-response">Order Placed Succeefully</p>
+                  <div style={{display:'flex', justifyContent:'center'}}>
+                  <button htmlFor="" style={{textDecoration:'underline', marginRight:'20px'}}>Download Invoice</button>
+                  </div>
+                  
+                </div> */}
+
+            {/* -------------------------------------------------------------- */}
 
         </div>
     )

@@ -69,15 +69,7 @@ export default function ProductPage() {
                 <div className="search-box">
                   <img src={Offerimg} alt="offer-tag" className="offer-tag"/>  
                 </div>
-                {/* <div className="sort-box">
-                  <label>Sort by price</label>
-                  <select>
-                     <option value="Default">Default</option>
-                     <option value="Price">High to Low</option>
-                     <option value="Price">Low to High</option>
-                  </select>
-                </div> */}
-            
+                
             </div>
             {popup && (
                 <div className='popup-container'>
@@ -87,6 +79,51 @@ export default function ProductPage() {
                 </div>
               )}
             <h2 style={{textDecoration:'underline'}} className="product-heading">List of Products</h2>
+
+            {/* ------------------Testing--------------------------------- */}
+            {/* <div className="product-container" onClick={offPopUp}>
+                    <div className="products">
+                       <img src={Offerimg} className="product-image"
+                        alt="Green Sparkles"></img>
+                        <hr />
+                       <h2>Crackling Sparklers</h2>
+                       <div className="price-tag">
+                         <h4>Price : ₹90</h4>
+                         <h3 className="orginal-price">₹350</h3>
+                       </div>
+                   <p>50cm 1 Box</p>
+                   <p>Discount : 75%</p>
+                   <button className="product-btn">Remove From cart </button>
+                    </div>
+                    <div className="products">
+                       <img src={Offerimg} className="product-image"
+                        alt="Green Sparkles"></img>
+                        <hr />
+                       <h2>Crackling Sparklers</h2>
+                       <div className="price-tag">
+                         <h4>Price : ₹90</h4>
+                         <h3 className="orginal-price">₹350</h3>
+                       </div>
+                   <p>50cm 1 Box</p>
+                   <p>Discount : 75%</p>
+                   <button className="product-btn">Remove From cart </button>
+                    </div>
+                    <div className="products">
+                       <img src={Offerimg} className="product-image"
+                        alt="Green Sparkles"></img>
+                        <hr />
+                       <h2>Crackling Sparklers</h2>
+                       <div className="price-tag">
+                         <h4>Price : ₹90</h4>
+                         <h3 className="orginal-price">₹350</h3>
+                       </div>
+                   <p>50cm 1 Box</p>
+                   <p>Discount : 75%</p>
+                   <button className="product-btn">Remove From cart</button>
+                    </div>
+            
+            </div> */}
+            {/* ----------------------------------------------------------------- */}
 
             <div className="product-container" onClick={offPopUp}>
             {product.map(p => (

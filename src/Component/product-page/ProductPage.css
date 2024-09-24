@@ -73,6 +73,8 @@
     font-weight: bold;
     color: #ffffff;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 .price-tag {
     display: flex;
@@ -121,6 +123,8 @@
     margin-bottom: 15px;
     margin-top: 20px;
     margin-right: 140px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 @media only screen and (max-width:600px){
@@ -128,7 +132,7 @@
         display: flex;
         justify-content: space-between;
         margin-top: 90px;
-        height: 30px;
+        height: 50px;
         /* width: 100%; */
         box-sizing: border-box;
         background-image: url('../home-page/Search-Bar-Logo.png');
@@ -140,7 +144,7 @@
         width: 40px;
         height: 40px;
         border-radius: 100%;
-        margin-top: 15px;
+        margin-top: 30px;
     }
     .sort-box {
         padding: 10px;
@@ -161,15 +165,17 @@
         font-size: 8px;
     }
     .product-heading {
-        font-size: 10px;
+        font-size: 12px;
+        letter-spacing: 1.1px;
     }
     .product-container {
         margin: auto;
         padding-top: 30px;
-        width: 280px;
+        width:100%;
         display: flex;
         flex-wrap: wrap;
         align-content: center;
+        justify-content: center;
         border-radius: 30px;
         background-color: #ffffff;
         box-shadow:3px 4px rgba(0, 0, 0, 0.5)
@@ -177,7 +183,7 @@
     .products {
         width: 100px;
         height :auto;
-        margin: 5px;
+        margin: 3px;
         border-radius: 20px;
         /* justify-content: center; */
         padding-bottom: 5px;
@@ -190,12 +196,13 @@
         letter-spacing: 1.2px; 
         font-family: monospace;
         font-size: 8px;
+        font-weight: bolder;
     }
     .products p {
-        font-family: 'Times New Roman', Times, serif;
-        color: #43b873;
+        font-family:monospace;
+        color: #008e3b;
         margin-top: 3px;
-        font-size: 6px;
+        font-size: 8px;
     }
     .products button {
         width: 85px;
@@ -208,12 +215,14 @@
         font-size: 6px;
         color: #ffffff;
         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
     }
     .price-tag {
         display: flex;
-        margin-left: 40px;
+        margin-left: 20px;
         margin-top: 2px;
-        font-size: 6px;
+        font-size: 8px;
     }
     
     .orginal-price {
@@ -223,7 +232,7 @@
         font-style: italic;
         text-decoration: line-through;
         color: red;
-        font-size: 6px;
+        font-size: 8px;
     }
     .product-image {
         width: 60px;
@@ -248,6 +257,8 @@
         margin-bottom: 15px;
         margin-top: 20px;
         margin-right: 40px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
     }
 
     .footer-container {

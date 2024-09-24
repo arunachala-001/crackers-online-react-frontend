@@ -25,6 +25,7 @@ export default function LoginPage() {
     }
     return (
         <div className="LoginPage">
+            <div className="background-login"></div>
             <div className="login-container">
                <label>User Name :</label>
                <input type="text" onChange={(e) => setUsername(e.target.value)}></input>

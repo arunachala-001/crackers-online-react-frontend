@@ -56,6 +56,7 @@
     margin: 10px;
     font-weight: bold;
     font-size : 16px;
+    cursor: pointer;
 
 }
 .tag:hover {
@@ -71,10 +72,10 @@
      .title-1 {
          margin-left: 5px;
          margin-top: 10px;
-         font-family: cursive;
+         font-family: Lucida Console;
          color: #007466;
          letter-spacing: 1.1px;
-         font-size: 12px;
+         font-size: 14px;
      }
      .logo1 {
          margin-top: 5px;
@@ -92,30 +93,37 @@
          display: flex;
      }
      .title-2 {
-         font-family: cursive;
+         font-family: Lucida Console;
          margin-left: 90px;
-         font-size: 12px;
+         font-size: 14px;
          margin-top: 2px;
          color: #bd8c00;
+         letter-spacing: 1.1px;
      }
      
      .model-header-page {
-         display: flex;
+         /* display: flex;
          flex-wrap: wrap;
          background-color: white;
          box-shadow: 2px 2px rgb(166, 166, 166);
          justify-content: space-between;
          position: fixed;
-         /* width: 100%; */
+         box-sizing: border-box;
+         top: 0px; */
+         display: flex;
+         flex-direction: column;
+         background-color: white;
+         box-shadow: 2px 2px rgb(166, 166, 166);
+         justify-content: space-between;
+         position: fixed;
          box-sizing: border-box;
          top: 0px;
      }
      .tags { 
          display: flex;
-         margin-right: 1px;
-         /* align-items: center; */
+         margin: auto;
          align-items:end;
-         padding: 7px;
+         padding: 4px;
          justify-content: space-evenly;
      }
      .tag {
@@ -123,10 +131,12 @@
          border: none;
          /* margin: 10px; */
          font-weight: bold;
-         font-size : 6px;
+         font-size : 8px;
          letter-spacing: 1.1px;
          cursor: pointer;
          text-decoration: underline;
+         cursor: pointer;
+         transition: background-color 0.3s ease, transform 0.2s ease;
      }
 
     

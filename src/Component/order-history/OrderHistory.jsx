@@ -44,9 +44,65 @@ export default function OrderHistory() {
 
     return (
         <div className="OrderHistory">
+
+        {/* ----------------------Testing----------------------------- */}
+        {/* <div className="order-background"></div>
+            <button onClick={navigateToHome} className="back-btn">Back</button>
+            <h1 className="history-heading">Your Orders</h1>
+            <div className="history-container">
+                    <div className="history">
+                        <h3>Product Name - Electric Sparkles</h3>
+                        <h3>Product Price - ₹50</h3>
+                        <h3>Description - 30cm 1 Box</h3>
+                        <h3>Quantity - 9</h3>
+                        <h3>Total - ₹300</h3>
+                        <h3>Orderd On - 2024-09-30</h3>
+                        <hr />
+                        <h3>Product Name - Electric Sparkles</h3>
+                        <h3>Product Price - ₹50</h3>
+                        <h3>Description - 30cm 1 Box</h3>
+                        <h3>Quantity - 9</h3>
+                        <h3>Total - ₹300</h3>
+                        <h3>Orderd On - 2024-09-30</h3>
+                        <hr />
+                        <h3>Product Name - Electric Sparkles</h3>
+                        <h3>Product Price - ₹50</h3>
+                        <h3>Description - 30cm 1 Box</h3>
+                        <h3>Quantity - 9</h3>
+                        <h3>Total - ₹300</h3>
+                        <h3>Orderd On - 2024-09-30</h3>
+                        <hr />
+                        <h3>Product Name - Electric Sparkles</h3>
+                        <h3>Product Price - ₹50</h3>
+                        <h3>Description - 30cm 1 Box</h3>
+                        <h3>Quantity - 9</h3>
+                        <h3>Total - ₹300</h3>
+                        <h3>Orderd On - 2024-09-30</h3>
+                        <hr />
+                   <button className="history-btn">Your Invoice</button>
+
+                    </div>
+                    <div className="history">
+                        <h3>Product Name - Electric Sparkles</h3>
+                        <h3>Product Price - ₹50</h3>
+                        <h3>Description - 30cm 1 Box</h3>
+                        <h3>Quantity - 9</h3>
+                        <h3>Total - ₹300</h3>
+                        <h3>Orderd On - 2024-09-30</h3>
+                        <hr />
+                        <h3>Product Name - Electric Sparkles</h3>
+                        <h3>Product Price - ₹50</h3>
+                        <h3>Description - 30cm 1 Box</h3>
+                        <h3>Quantity - 9</h3>
+                        <h3>Total - ₹300</h3>
+                        <h3>Orderd On - 2024-09-30</h3>
+                        <hr />
+                        </div>
+                    
+           </div>  */}
+        {/* -------------------------------------------------------------- */}
             <div className="order-background"></div>
-            <button onClick={navigateToHome}
-             style={{border:'none', backgroundColor:'yellow', color:'white', marginLeft:'2px'}}>Back</button>
+            <button onClick={navigateToHome} className="back-btn">Back</button>
             <h1 className="history-heading">Your Orders</h1>
             <div className="history-container">
             {orderHistory.map((customer) => (

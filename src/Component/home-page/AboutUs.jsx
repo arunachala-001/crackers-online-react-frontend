@@ -1,15 +1,22 @@
 import { useNavigate } from 'react-router-dom'
 import './Aboutus.css'
 import HeaderPage from './HeaderPage'
+import { useState } from 'react'
 export default function AboutUs() {
     const navigate = useNavigate()
+    const [popup, setPopup] = useState(false)
+    const [email, setEmail] = useState("")
 
-    function navigateToHome() {
-        navigate('/')
+    function handlePopup() {
+       setPopup(true)
+    }
+
+    function navigateToHistory() {
+        navigate(`/history/${email}`)
     }
     return(
         <div className="AboutUs">
-            <HeaderPage navigateToHome = {navigateToHome}></HeaderPage>
+            <HeaderPage handlePopup = {handlePopup}></HeaderPage>
             <h1 className="title">Welcome To SRI LAKSHMI AGENCIES</h1>
             <div>
             <p className="start-para">Crackers make beautiful moments, we are a reputed and reliable trader in the 
@@ -57,6 +64,14 @@ export default function AboutUs() {
 
                <h4 style={{fontStyle:'italic', fontSize:'10px', color:'white'}}>Copyright © 2022, SRI LAKSHMI AGENCIES All rights reserved </h4>
              </div>
+
+             {popup && (
+                <div className='popup-container'>
+                  <input type='text' placeholder='Enter your email ID' value={email}
+                  onChange={(e) => setEmail(e.target.value)}></input>
+                  <button onClick={navigateToHistory}>OK</button>
+                </div>
+              )}
 
         </div>
     )
