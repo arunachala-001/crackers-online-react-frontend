@@ -42,7 +42,7 @@ export default function OrderPage() {
                   orginalPrice : res.orginalPrice,
                   description : res.description,
                   productDiscount: res.productDiscount,
-                  image : res.image.substring(13)
+                  image : res.image.substring(8)
                 }
             ))
             return setOrder(mapToproduct)

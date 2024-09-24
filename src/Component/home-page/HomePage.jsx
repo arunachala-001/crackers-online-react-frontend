@@ -27,7 +27,7 @@ export default function HomePage() {
         const categories = response.data.map((res) => ({
             id : res.categoryId,
             categoryName : res.categoryName,
-            imageUrl : res.image.substring(13)
+            imageUrl : res.image.substring(8)
         }))
         return setCategory(categories)
     })
@@ -69,7 +69,7 @@ export default function HomePage() {
         const mapToSearchProduct = response.data.map((res) => ({
           id : res.categoryId,
           categoryName : res.categoryName,
-          imageUrl : res.image.substring(13)
+          imageUrl : res.image.substring(8)
       }))
       return setSearchProducts(mapToSearchProduct)
       
@@ -225,7 +225,7 @@ export default function HomePage() {
                 ) : options ? (
                   <>
                      <div className="categories">
-                     <button className="button-category" onClick={()=>navigateToProduct(optionProducts.categoryId)}><img src={`https://sivakasi-crackers.onrender.com/image/${optionProducts.image.substring(13)}`} 
+                     <button className="button-category" onClick={()=>navigateToProduct(optionProducts.categoryId)}><img src={`https://sivakasi-crackers.onrender.com/image/${optionProducts.image.substring(8)}`} 
                      alt="category img" className="categoryImage"></img></button>
                      <div className="category-name-container">
                        <h4 className="category">{optionProducts.categoryName}</h4>    
