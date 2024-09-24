@@ -27,7 +27,7 @@ export default function ProductPage() {
                 orginalPrice : res.orginalPrice,
                 description : res.description,
                 discount : res.productDiscount,
-                image : res.image.substring(8)
+                image : res.image.substring(14)
             }))
             return setProduct(mapToProduct)
         }) 
