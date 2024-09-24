@@ -266,7 +266,7 @@ export default function AdminHome() {
                   <p style={{color:'red', fontSize:'6px'}}>Please Select Category in doropdown before adding Products</p>
                   <div>
                      <select className='select-box-admin' onChange={handleOptionCategory}>
-                        <option>Select Product</option>
+                        <option>Select Category</option>
                         {categoryAdmin.map((c) => (    
                           <option key={c.id} value={c.categoryName}>{c.categoryName}</option>    
                         ))}
