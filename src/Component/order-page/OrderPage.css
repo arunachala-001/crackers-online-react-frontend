@@ -266,8 +266,8 @@
     }
     .form-container {
         top: 30%;
-        left: 3%;
-        width: 300px;
+        left: 0%;
+        width: 100%;
         height: auto;
         border-radius: 30px;
         background-color: #ffffff;
@@ -360,8 +360,8 @@
     
     .order-response-container {
         top: 40%;
-        left: 18%;
-        width: 200px;
+        left: 0%;
+        width: 100%;
         height: auto;
         border-radius: 30px;
         background-color: #ffffff;
@@ -399,6 +399,7 @@
     .back-btn-order button {
         background-color: rgb(120, 110, 0);
         margin-left: 15px;
+        margin-top: 10px;
         font-weight: bold;
         color: white;
         font-size: 10px;
@@ -406,5 +407,10 @@
         border-radius: 5px;
         width: 50px;
         transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    .quantity-response p {
+      font-size: 6px;
+      color: red;
+      
     }
 }

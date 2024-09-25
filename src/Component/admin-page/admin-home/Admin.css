@@ -123,6 +123,7 @@
         border-collapse: collapse;
         width: 200px;
         border: 1px solid black;
+        text-align: center;
     }
     .table th {
         border: 1px solid black;
@@ -134,6 +135,7 @@
         border: 0.7px solid black;
         font-size: 4px;
         background-color: #cef2f5;
+        height: auto;
     }
     .table button {
         font-size: 4px;

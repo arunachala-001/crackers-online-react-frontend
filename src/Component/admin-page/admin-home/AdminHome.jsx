@@ -305,7 +305,7 @@ export default function AdminHome() {
                 </div>
           </div>
             )}
-            {allOrdersTag && (
+            {/* {allOrdersTag && (
                 <>
                 <table>
                     <thead>
@@ -326,7 +326,6 @@ export default function AdminHome() {
                           <td>{o.quantity}</td>
                           <td>Pending</td>
                           <td>{o.orderedDate}</td>
-                          {/* <td>{o.customer.firstName} {o.customer.lastName}</td> */}
                          </div>
                         ))}
                     </tbody>
@@ -334,13 +333,14 @@ export default function AdminHome() {
                 </table>
                    
                 </>
-            )}
+            )} */}
             {invoicesTag && (
                 <>
-                <div style={{position:'fixed', top:'2%', left:'70%', width:'30px'}}><select onChange={handleStatus}>
-                    <option value="Pending" style={{fontSize:'5px'}}>Pending</option>
-                    <option value="Completed" style={{fontSize:'5px'}}>Completed</option>
+                <div style={{position:'fixed', top:'2%', left:'70%', width:'30px'}}>
+                    <select onChange={handleStatus}>
                     <option value="All" style={{fontSize:'5px'}}>All</option>
+                    <option value="Completed" style={{fontSize:'5px'}}>Completed</option>
+                    <option value="Pending" style={{fontSize:'5px'}}>Pending</option>
                 </select></div>
                 
                 <table className='table'>
@@ -353,7 +353,10 @@ export default function AdminHome() {
                         </tr>   
                     </thead>
                         <tbody> 
-                            {customer.map((c) => (
+                            {customer.length <=0 ?
+                              (
+                                <h1 style={{fontSize:'px'}}>No Data to shown here</h1>
+                              ): (customer.map((c) => (
                               <tr key={c.id}>
                                <td>{c.firstName} {c.lastName}</td>
                               <td>{c.orderStatus}</td>
@@ -366,7 +369,7 @@ export default function AdminHome() {
                                   })} style={{backgroundColor:'green', color:'white'}}>Mark as completed</button></td>
                                <td><button onClick={() =>downloadInvoice(c.id)}>Invoice</button></td>
                               </tr>
-                           ))}
+                           )))}
                            
                           
                         </tbody>

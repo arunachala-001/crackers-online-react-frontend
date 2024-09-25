@@ -21,6 +21,7 @@ export default function OrderPage() {
     const [userResponse, setUserResponse] = useState("")
     const [userId, setUserId] = useState("")
 
+    const [quantityResponse, setQuantitResponse] = useState("")
     const [FirstName, setFirstName] = useState("")
     const [LastName, setLastName] = useState("")
     const [email, setEmail] = useState("")
@@ -73,12 +74,11 @@ export default function OrderPage() {
         try {
              await placeOrderBackend(userId, orderRequest)
              .then(response => {
-                
                 setOrderResponse(response.data)
                 if(response.status ===200 || response.status ===201) {
                     setOrderTrue(true)
                 } else {
-                  setOrderResponse("Order Failed, Try again")
+                  setOrderResponse("Order Failed, Try again !")
                 }
              }).finally(() => setLoading(false))
            }
@@ -89,6 +89,10 @@ export default function OrderPage() {
     }
 
     const handleQuantityChange = (productId, value) => {
+      if(value.trim === '' || value <=0) {
+        setQuantitResponse("Please Add Quantity")
+        setTimeout(() => setQuantitResponse(''), 10000);
+      }
         setQuantity(prevQuantities => ({
             ...prevQuantities,
             [productId]: value
@@ -115,7 +119,7 @@ export default function OrderPage() {
                     setUserId(response.data.substring(33))
                     // setCustomerSaved(true)
                 } else {
-                    setUserResponse("Something went wrong")
+                    setUserResponse("Something went wrong, try again!")
                 }                
             }).finally(() => setLoading(false))           
         } catch (error) {
@@ -148,12 +152,22 @@ export default function OrderPage() {
     function navigateToHome() {
       navigate('/')
     }
+
+    // function handleTesting(value) {
+    //   if(value <=0) {
+    //     setQuantitResponse("Cant be blank")
+    //     setTimeout(() => setQuantitResponse(''), 10000);
+    //   }
+    // }
     return (
         <div className="OrderPage">
             <div className="background-order"></div> 
-            <h1 className="Order-Tittle">Order Details</h1>
             <div className="back-btn-order">
               <button onClick={navigateToHome}>Back</button>
+            </div>
+            <h1 className="Order-Tittle">Order Details</h1>
+            <div className="quantity-response">
+              <p >{quantityResponse}</p>
             </div>
             <div className="order-container" onClick={closeCustomerTab}>
             {order && order.map((o) => (
@@ -165,8 +179,9 @@ export default function OrderPage() {
                     <hr />
                    <h2>{o.productName}</h2>
                    <label style={{color:'#43b873'}}>Select Quantity</label>
+                   
                    <input type="number" value={quantity[o.productId]} className="quantity-field"
-                   onChange={(e)=>handleQuantityChange(o.productId,e.target.value)}></input>
+                   onChange={(e)=>handleQuantityChange(o.productId,e.target.value)} required></input>
                    <h4>Price :₹{o.productPrice}</h4>
                    <p>{o.description}</p>
                    </div>
@@ -256,14 +271,18 @@ export default function OrderPage() {
             )}
 
             {/* ---------------------Testing--------------------------- */}
-            {/* <div className="order-container">
+            {/* <div className="quantity-response">
+              <p >{quantityResponse}</p>
+            </div>
+            <div className="order-container">
                     <div className="orders">
                        <img src={backgrd}
                        className="order-image" alt="Crackling Sparkles"></img>
                        <hr />
                        <h2>Crackling Sparkles</h2>
                       <label style={{color:'#43b873'}}>Select Quantity</label>
-                      <input type="number" className="quantity-field"></input>
+                      <input type="number" className="quantity-field" value={quantity[0]}
+                      onChange={(e) => handleTesting(e.target.value)} required></input>
                       <h4>Price :₹180</h4>
                       <p>30cm 1 Box</p>
                    </div>
@@ -346,8 +365,8 @@ export default function OrderPage() {
             <p style={{fontStyle:'italic', alignSelf:'center', fontWeight:'bold', color:'#07b441'}} className="customer-response">User Saved Successfully</p>
             <button className="close-btn" onClick={() => setCustomer(false)}>Close</button>
             </div> */}
-{/* 
-                  <div className="order-response-container">
+
+                  {/* <div className="order-response-container">
                   <p style={{fontStyle:'italic', fontWeight:'bold', color:'#07b441'}} className="order-response">Order Placed Succeefully</p>
                   <div style={{display:'flex', justifyContent:'center'}}>
                   <button htmlFor="" style={{textDecoration:'underline', marginRight:'20px'}}>Download Invoice</button>
