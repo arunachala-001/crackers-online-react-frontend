@@ -185,19 +185,36 @@ export default function AdminHome() {
     setInvoicesTag(true)
     SetEditProducttag(false)
    }
-
-   function handleStatus(event) {
+   function functionForFilter(orderStatus) {
     const token = localStorage.getItem('token')
-     if(event.target.value === "Pending" || event.target.value === "Completed") {
-        const orderStatus = event.target.value
-        setFilterStatus(true)
-        axios.get(`https://sivakasi-crackers.onrender.com/admin/customer-order/get/status/${orderStatus}`,{
+    axios.get(`https://sivakasi-crackers.onrender.com/admin/customer-order/get/status/${orderStatus}`,{
             headers: {
                 'Authorization':`Bearer ${token}`
             }
         }).then(response => {
-            setFilteredStatus(response.data)
+            if(response.status === 200 || response.status === 201) {
+                setFilteredStatus(response.data)
+            } else {
+                setFilteredStatus("No data to show for"+ orderStatus)
+            }
+            
         }).catch(error => setFilterStatus(error.data))
+   }
+
+   function handleStatus(event) {
+    const token = localStorage.getItem('token')
+     if(event.target.value === "Pending" || event.target.value === "Completed") {
+        setFilterStatus(true)
+        functionForFilter(event.target.value)
+        // const orderStatus = event.target.value
+        // setFilterStatus(true)
+        // axios.get(`https://sivakasi-crackers.onrender.com/admin/customer-order/get/status/${orderStatus}`,{
+        //     headers: {
+        //         'Authorization':`Bearer ${token}`
+        //     }
+        // }).then(response => {
+        //     setFilteredStatus(response.data)
+        // }).catch(error => setFilterStatus(error.data))
      } else if(event.target.value === "All") {
         setFilterStatus(false)
      }
