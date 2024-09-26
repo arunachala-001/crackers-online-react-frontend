@@ -20,6 +20,8 @@ export default function HomePage() {
    const [loading, setLoading] = useState(false)
    const[options, setOptions] = useState(false)
    const [optionProducts, setOptionProducts] = useState()
+   
+  //  const [cartState, setCartState] = useState(0)
 
    function retriveAllCategory() {
     fetchAllCategories()
@@ -112,6 +114,17 @@ export default function HomePage() {
   function navigateToCartPage() {
     navigate('/customer/cart')
   }
+
+  // function retriveCartStatus() {
+  //   const storedIds = JSON.parse(localStorage.getItem('selectedProductIds')) || []
+  //   if(storedIds.length >0) {
+  //      setCartState(storedIds.length)
+  //   }
+  // }
+
+  // useEffect(
+  //   () => retriveCartStatus(), []
+  // )
 
     return (
         <div className="HomePage">

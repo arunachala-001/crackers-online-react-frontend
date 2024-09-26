@@ -182,6 +182,21 @@
     margin: 3px;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
+.cart-page {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.cart-page img {
+    width: 100px;
+    height: 100px;
+    position: fixed;
+    right: 5%;
+    top: 50%;
+    border-radius: 80%;
+}
+
 
 @media only screen and (max-width:600px){ 
     .Search-Bar {
@@ -419,19 +434,21 @@
     }
 
     .cart-page {
-        background: none;
+        position: fixed;
         border: none;
+        display: flex;
+        align-items: center;
+        right: 5%;
+        top: 50%;
     }
 
     .cart-page img {
+        position: relative;
         width: 65px;
         height: 65px;
-        position: fixed;
-        right: 5%;
-        top: 50%;
         border-radius: 80%;
     }
-    
+       
     
 }
 

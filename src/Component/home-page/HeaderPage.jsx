@@ -8,8 +8,8 @@ export default function HeaderPage({handlePopup}) {
   function navigateToAbout() {
      navigate('/aboutus')
   }
-  function navigateToContact() {
-    navigate('/aboutus')
+  function navigateToCart() {
+    navigate('/customer/cart')
   }
 
   function navigateToHome() {
@@ -32,7 +32,7 @@ export default function HeaderPage({handlePopup}) {
                 <button className="tag" onClick={navigateToHome}>Home</button>
                 <button className="tag" onClick={handlePopup}>Your Orders</button>
                 <button className="tag" onClick={navigateToAbout}>About Us</button>
-                <button className="tag" onClick={navigateToContact}>Contact Us</button>
+                <button className="tag" onClick={navigateToCart}>Your Cart</button>
               </div>
              
             </div> 

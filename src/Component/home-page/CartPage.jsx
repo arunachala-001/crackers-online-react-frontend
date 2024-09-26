@@ -98,7 +98,7 @@ export default function CartPage() {
                     style={{
                         backgroundColor: selectedId.includes(p.id) ? '#cf0000' : '#a29a00',
                       }}
-                    onClick={() => handleProduct(p.id)}>{selectedId.includes(p.id)? 'Remove From Cart': 'Add to Cart'}</button>
+                    onClick={() => handleProduct(p.id)}>{selectedId.includes(p.id)? 'Remove From Order': 'Add to Order'}</button>
                     </div>    
                     
                 </div>
