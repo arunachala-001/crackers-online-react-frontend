@@ -15,7 +15,7 @@ export default function CartPage() {
     const [email, setEmail] = useState("")
 
     function fetchProductsByCategoryId() {
-        const storedIds = localStorage.getItem('selectedProductIds');
+        const storedIds = JSON.parse(localStorage.getItem('selectedProductIds')) || []
         console.log(storedIds)
         fetchProductsForOrder(storedIds)
         .then(response =>{ 

@@ -39,7 +39,7 @@ export default function ProductPage() {
     )
 
     function handleProduct(productId) {
-       const storedIds = localStorage.getItem('selectedProductIds') || [];
+      const storedIds = JSON.parse(localStorage.getItem('selectedProductIds')) || []
         setSelectedId((ids) => {
           const currentIds = [...new Set([...storedIds, ...ids])];
           // 
