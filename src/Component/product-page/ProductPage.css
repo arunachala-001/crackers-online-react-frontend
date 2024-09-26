@@ -190,6 +190,27 @@
         background-color: rgb(255, 255, 255);
         box-shadow:3px 4px rgba(0, 0, 0, 0.5)
     }
+    .navigate-tag {
+        margin-top: 25px;
+        display: flex;
+        justify-content: flex-start;
+        margin-left: 20px;
+    }
+    .navigate-tag button {
+        border: none;
+        background: none;
+        font-size: 8px;
+        color: #008e3b;
+        font-weight: bold;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        text-decoration: underline;
+    }
+    .navigate-tag h3 {
+        font-size: 8px;
+        color: #008e3b;
+        font-weight: bold;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
     .products h2 {
         margin-top: 2px;
         color: #107f78;
