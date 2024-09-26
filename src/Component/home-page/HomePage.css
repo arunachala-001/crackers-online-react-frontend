@@ -46,6 +46,22 @@
     border-radius: 100%;
 }
 
+.cart-page {
+    position: fixed;
+    border: none;
+    display: flex;
+    align-items: center;
+    right: 5%;
+    top: 50%;
+}
+
+.cart-page img {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: 80%;
+}
+
 .popup-container {
     top: 50%;
     left: 30%;
