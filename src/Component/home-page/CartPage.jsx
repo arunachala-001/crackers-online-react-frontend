@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { fetchProductById } from "../APIs/Controller";
+import { fetchProductById, fetchProductsForOrder } from "../APIs/Controller";
 import '../home-page/HomePage.css'
 import Offerimg from "../home-page/offer-tag.jpg"
 import '../product-page/ProductPage.css'
@@ -17,7 +17,7 @@ export default function CartPage() {
     function fetchProductsByCategoryId() {
         const storedIds = localStorage.getItem('selectedProductIds');
         console.log(storedIds)
-        fetchProductById(storedIds)
+        fetchProductsForOrder(storedIds)
         .then(response =>{ 
             console.log(response.data)
             const mapToProduct = response.data.map((res) => ({
