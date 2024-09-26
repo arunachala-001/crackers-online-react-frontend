@@ -91,10 +91,10 @@ export default function ProductPage() {
                   <button onClick={navigateToHistory}>OK</button>
                 </div>
               )}
-            <div className="navigate-tag">
+            {/* <div className="navigate-tag">
               <button onClick={navigateToHome}>Home</button>
               <h3>{'>'} {product[0].category.name}</h3>
-            </div>
+            </div> */}
             <h2 style={{textDecoration:'underline'}} className="product-heading">List of Products</h2>
             
             <button className="cart-page" onClick={navigateToCartPage}>
