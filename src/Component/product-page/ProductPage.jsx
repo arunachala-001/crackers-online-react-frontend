@@ -30,7 +30,7 @@ export default function ProductPage() {
                 discount : res.productDiscount,
                 image : res.image.substring(15)
             }))
-            setCategoryName(mapToProduct[0].category.name)
+            // setCategoryName(mapToProduct[0].category.name)
             return setProduct(mapToProduct)
         }) 
         .catch(error => console.log(error))
@@ -92,10 +92,10 @@ export default function ProductPage() {
                   <button onClick={navigateToHistory}>OK</button>
                 </div>
               )}
-            <div className="navigate-tag">
+            {/* <div className="navigate-tag">
               <button onClick={navigateToHome}>Home</button>
               <h3>{'>'} {categoryName}</h3>
-            </div>
+            </div> */}
             <h2 style={{textDecoration:'underline'}} className="product-heading">List of Products</h2>
             
             <button className="cart-page" onClick={navigateToCartPage}>
