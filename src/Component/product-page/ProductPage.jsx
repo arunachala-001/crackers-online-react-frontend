@@ -85,11 +85,11 @@ export default function ProductPage() {
         
         console.log(setSelectedId)
     }
-    function navigateToOrder() {
-        if(selectedId.length >0) {
-            navigate('/order/', {state : {productIds: selectedId}})
-        }
-    }
+    // function navigateToOrder() {
+    //     if(selectedId.length >0) {
+    //         navigate('/order/', {state : {productIds: selectedId}})
+    //     }
+    // }
     function handlePopup() {
         setPopup(true)
     }
@@ -126,7 +126,7 @@ export default function ProductPage() {
               {product.length > 0 && product[0].category ? (
             <h3>{'>'} {product[0].category.name}</h3>
              ) : (
-            <h3>{'>'} Testing</h3>
+            <h3>{'>'} ...</h3>
              )} 
             </div>
             <h2 style={{textDecoration:'underline'}} className="product-heading">List of Products</h2>
@@ -206,14 +206,14 @@ export default function ProductPage() {
             ))}
             
             </div>
-            <div className="order-btn-container">
+            {/* <div className="order-btn-container">
               <button onClick={navigateToOrder} disabled={isOrderBtnDisabled}
               style={{
                 opacity: isOrderBtnDisabled ? 0.5 : 1, // Optional: Visual indication
                 cursor: isOrderBtnDisabled ? 'not-allowed' :'pointer' ,
               }}
               className="order-btn">ORDER NOW</button>
-            </div>
+            </div> */}
             <div className="footer-container" onClick={offPopUp}>
                  <h3>Enjoy Diwali with colourful and brightful celebrations🦚</h3>
                  <div className="footer-content-container">
