@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import './OrderPage.css'
 import { BounceLoader } from 'react-spinners';
-import backgrd from './background-3.png'
+// import backgrd from './background-3.png'
 
 
 export default function OrderPage() {
@@ -99,6 +99,20 @@ export default function OrderPage() {
         }));
     };
 
+    function handleQuantityDecrease(productId) {
+      setQuantity((prev) => ({
+        ...prev,
+        [productId]:Math.max(0,(prev[productId] || 1)-1)
+      }))
+    }
+
+    function handleQuantityIncrease(productId) {
+      setQuantity((prev) => ({
+        ...prev,
+        [productId] : (prev[productId] || 1)+1
+      }))
+    }
+
     const saveCustomer = async () => {
         const CustomerData = {
             firstName : FirstName,
@@ -178,10 +192,14 @@ export default function OrderPage() {
                     
                     <hr />
                    <h2>{o.productName}</h2>
-                   <label style={{color:'#43b873'}}>Select Quantity</label>
+                   <label style={{color:'#43b873'}}>Qty</label>
+                   <div className="quantity-container">
+                     <button onClick={handleQuantityDecrease(o.productId)}>-</button>
+                     <input type="number" value={quantity[o.productId] || 1} className="quantity-field"
+                      onChange={(e)=>handleQuantityChange(o.productId,e.target.value)} required></input>
+                     <button onClick={handleQuantityIncrease(o.productId)}>-</button>
+                   </div>
                    
-                   <input type="number" value={quantity[o.productId]} className="quantity-field"
-                   onChange={(e)=>handleQuantityChange(o.productId,e.target.value)} required></input>
                    <h4>Price :₹{o.productPrice}</h4>
                    <p>{o.description}</p>
                    </div>
@@ -280,9 +298,13 @@ export default function OrderPage() {
                        className="order-image" alt="Crackling Sparkles"></img>
                        <hr />
                        <h2>Crackling Sparkles</h2>
-                      <label style={{color:'#43b873'}}>Select Quantity</label>
-                      <input type="number" className="quantity-field" value={quantity[0]}
-                      onChange={(e) => handleTesting(e.target.value)} required></input>
+                      <label style={{color:'#43b873'}}>Qty</label>
+                      <div className="quantity-container">
+                        <button>-</button>
+                        <input type="number" className="quantity-field" required></input>
+                        <button>+</button>
+                      </div>
+                
                       <h4>Price :₹180</h4>
                       <p>30cm 1 Box</p>
                    </div>

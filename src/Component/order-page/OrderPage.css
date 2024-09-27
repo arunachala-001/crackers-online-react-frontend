@@ -259,7 +259,7 @@
         transition: background-color 0.3s ease, transform 0.2s ease;
     }
     .quantity-field {
-        width: 60px;
+        width: 20px;
         height: 10px;
         font-size: 6px;
         text-align: center;
@@ -411,6 +411,22 @@
     .quantity-response p {
       font-size: 6px;
       color: red;
-
     }
+
+    .quantity-container {
+        display: flex;
+        justify-content: center;
+    }
+    .quantity-container button {
+        background: none;
+        border: none;
+        color: #00b126;
+        margin-left: 2px;
+        margin-right: 2px;
+        margin-bottom: 3px;
+        font-weight: bold;
+        font-size: 15px;
+    
+    }
+     
 }

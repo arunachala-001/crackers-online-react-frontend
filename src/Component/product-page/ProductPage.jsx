@@ -15,6 +15,35 @@ export default function ProductPage() {
     const [popup, setPopup] = useState(false)
     const [email, setEmail] = useState("")
 
+  //  ------------------Testing---------------------
+  // const productTesting = [
+  //     {
+  //      id: 1,
+  //      productName : "Baby Rockets",
+  //      category: {
+  //      id : 100,
+  //      name : "Rockets"
+  //      }
+  //     },
+  //     {
+  //      id: 2,
+  //      productName : "Bomb Rockets",
+  //      category: {
+  //      id : 100,
+  //      name : "Rockets"
+  //      }
+  //     },
+  //     {
+  //      id: 3,
+  //      productName : "Super Rockets",
+  //      category: {
+  //      id : 100,
+  //      name : "Rockets"
+  //      }
+  //     },
+  // ]
+   
+
     function fetchProductsByCategoryId() {
         console.log(productId)
         fetchProductById(productId)
@@ -27,6 +56,7 @@ export default function ProductPage() {
                 orginalPrice : res.orginalPrice,
                 description : res.description,
                 discount : res.productDiscount,
+                category : res.category,
                 image : res.image.substring(15)
             }))
             // setCategoryName(mapToProduct[0].category.name)
@@ -91,10 +121,14 @@ export default function ProductPage() {
                   <button onClick={navigateToHistory}>OK</button>
                 </div>
               )}
-            {/* <div className="navigate-tag">
+            <div className="navigate-tag">
               <button onClick={navigateToHome}>Home</button>
-              <h3>{'>'} {product[0].category.name}</h3>
-            </div> */}
+              {product.length > 0 && product[0].category ? (
+            <h3>{'>'} {product[0].category.name}</h3>
+             ) : (
+            <h3>{'>'} Testing</h3>
+             )} 
+            </div>
             <h2 style={{textDecoration:'underline'}} className="product-heading">List of Products</h2>
             
             <button className="cart-page" onClick={navigateToCartPage}>
