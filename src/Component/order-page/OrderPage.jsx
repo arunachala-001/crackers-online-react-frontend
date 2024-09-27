@@ -99,19 +99,19 @@ export default function OrderPage() {
         }));
     };
 
-    function handleQuantityDecrease(productId) {
-      setQuantity((prev) => ({
-        ...prev,
-        [productId]:Math.max(0,(prev[productId] || 1)-1)
-      }))
-    }
+    // function handleQuantityDecrease(productId) {
+    //   setQuantity((prev) => ({
+    //     ...prev,
+    //     [productId]:Math.max(0,(prev[productId] || 1)-1)
+    //   }))
+    // }
 
-    function handleQuantityIncrease(productId) {
-      setQuantity((prev) => ({
-        ...prev,
-        [productId] : (prev[productId] || 1)+1
-      }))
-    }
+    // function handleQuantityIncrease(productId) {
+    //   setQuantity((prev) => ({
+    //     ...prev,
+    //     [productId] : (prev[productId] || 1)+1
+    //   }))
+    // }
 
     const saveCustomer = async () => {
         const CustomerData = {
@@ -193,12 +193,13 @@ export default function OrderPage() {
                     <hr />
                    <h2>{o.productName}</h2>
                    <label style={{color:'#43b873'}}>Qty</label>
-                   <div className="quantity-container">
-                     <button onClick={handleQuantityDecrease(o.productId)}>-</button>
-                     <input type="number" value={quantity[o.productId] || 1} className="quantity-field"
+                   <input type="number" value={quantity[o.productId]} className="quantity-field"
                       onChange={(e)=>handleQuantityChange(o.productId,e.target.value)} required></input>
+                   {/* <div className="quantity-container">
+                     <button onClick={handleQuantityDecrease(o.productId)}>-</button>
+                    
                      <button onClick={handleQuantityIncrease(o.productId)}>-</button>
-                   </div>
+                   </div> */}
                    
                    <h4>Price :₹{o.productPrice}</h4>
                    <p>{o.description}</p>
