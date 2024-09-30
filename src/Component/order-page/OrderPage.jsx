@@ -29,6 +29,33 @@ export default function OrderPage() {
     const [address, setAddress] = useState("")
     const [pinCode, setPincode] = useState("")
 
+    // const TestingData = [
+    //   {
+    //          id: 1,
+    //          productName : "Baby Rockets",
+    //          category: {
+    //          id : 100,
+    //          name : "Rockets"
+    //          }
+    //         },
+    //         {
+    //          id: 2,
+    //          productName : "Bomb Rockets",
+    //          category: {
+    //          id : 100,
+    //          name : "Rockets"
+    //          }
+    //         },
+    //         {
+    //          id: 3,
+    //          productName : "Super Rockets",
+    //          category: {
+    //          id : 100,
+    //          name : "Rockets"
+    //          }
+    //         },
+    // ]
+
     function retrieveProductsForOrder() {
         console.log(productIds)
         fetchProductsForOrder(productIds)
@@ -99,19 +126,20 @@ export default function OrderPage() {
         }));
     };
 
-    // function handleQuantityDecrease(productId) {
-    //   setQuantity((prev) => ({
-    //     ...prev,
-    //     [productId]:Math.max(0,(prev[productId] || 1)-1)
-    //   }))
-    // }
+    function handleQuantityDecrease(productId) {
+      setQuantity((prev) => ({
+        ...prev,
+        [productId]:Math.max(0,(prev[productId] || 1)-1)
+      }))
+      console.log(setQuantity)
+    }
 
-    // function handleQuantityIncrease(productId) {
-    //   setQuantity((prev) => ({
-    //     ...prev,
-    //     [productId] : (prev[productId] || 1)+1
-    //   }))
-    // }
+    function handleQuantityIncrease(productId) {
+      setQuantity((prev) => ({
+        ...prev,
+        [productId] : (prev[productId] || 1)+1
+      }))
+    }
 
     const saveCustomer = async () => {
         const CustomerData = {
@@ -193,13 +221,12 @@ export default function OrderPage() {
                     <hr />
                    <h2>{o.productName}</h2>
                    <label style={{color:'#43b873'}}>Qty</label>
-                   <input type="number" value={quantity[o.productId]} className="quantity-field"
+                   <div className="quantity-container">
+                     <button onClick={()=>handleQuantityDecrease(o.productId)}>-</button>
+                     <input type="number" value={quantity[o.productId]} className="quantity-field"
                       onChange={(e)=>handleQuantityChange(o.productId,e.target.value)} required></input>
-                   {/* <div className="quantity-container">
-                     <button onClick={handleQuantityDecrease(o.productId)}>-</button>
-                    
-                     <button onClick={handleQuantityIncrease(o.productId)}>-</button>
-                   </div> */}
+                     <button onClick={()=>handleQuantityIncrease(o.productId)}>-</button>
+                   </div>
                    
                    <h4>Price :₹{o.productPrice}</h4>
                    <p>{o.description}</p>
@@ -294,52 +321,28 @@ export default function OrderPage() {
               <p >{quantityResponse}</p>
             </div>
             <div className="order-container">
-                    <div className="orders">
-                       <img src={backgrd}
-                       className="order-image" alt="Crackling Sparkles"></img>
-                       <hr />
-                       <h2>Crackling Sparkles</h2>
-                      <label style={{color:'#43b873'}}>Qty</label>
-                      <div className="quantity-container">
-                        <button>-</button>
-                        <input type="number" className="quantity-field" required></input>
-                        <button>+</button>
-                      </div>
-                
-                      <h4>Price :₹180</h4>
-                      <p>30cm 1 Box</p>
-                   </div>
-                    <div className="orders">
-                       <img src={backgrd}
-                       className="order-image" alt="Crackling Sparkles"></img>
-                       <hr />
-                       <h2>Crackling Sparkles</h2>
-                      <label style={{color:'#43b873'}}>Select Quantity</label>
-                      <input type="number" className="quantity-field"></input>
-                      <h4>Price :₹180</h4>
-                      <p>30cm 1 Box</p>
-                   </div>
-                    <div className="orders">
-                       <img src={backgrd}
-                       className="order-image" alt="Crackling Sparkles"></img>
-                       <hr />
-                       <h2>Crackling Sparkles</h2>
-                      <label style={{color:'#43b873'}}>Select Quantity</label>
-                      <input type="number" className="quantity-field"></input>
-                      <h4>Price :₹180</h4>
-                      <p>30cm 1 Box</p>
-                   </div>
-                    <div className="orders">
-                       <img src={backgrd}
-                       className="order-image" alt="Crackling Sparkles"></img>
-                       <hr />
-                       <h2>Crackling Sparkles</h2>
-                      <label style={{color:'#43b873'}}>Select Quantity</label>
-                      <input type="number" className="quantity-field"></input>
-                      <h4>Price :₹180</h4>
-                      <p>30cm 1 Box</p>
-                   </div>
+                   {TestingData.map((o) => (
+                    <div key={o.id}>
+                         <div className="orders">
+                          <img src={backgrd}
+                           className="order-image" alt="Crackling Sparkles"></img>
+                          <hr />
+                          <h2>{o.productName}</h2>
+                          <label style={{color:'#43b873'}}>Qty</label>
+                          <div className="quantity-container">
+                            <button onClick={()=>handleQuantityDecrease(o.id)}>-</button>
+                            <input type="number" className="quantity-field"
+                            value={quantity[o.id]|| 1} required></input>
+                            <button onClick={()=>handleQuantityIncrease(o.id)}>+</button>
+                          </div>
+
+                          <h4>Price :₹180</h4>
+                          <p>30cm 1 Box</p>
+                        </div>
+                    </div>
+                   ))}        
             </div> */}
+            {/* <button onClick={testOrder}>Order</button> */}
             {/* ------------Customer------------------ */}
             {/* <div className="form-container">
               
@@ -401,4 +404,6 @@ export default function OrderPage() {
 
         </div>
     )
+
+    
 }

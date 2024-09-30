@@ -187,6 +187,7 @@ export default function AdminHome() {
    }
    function functionForFilter(orderStatus) {
     const token = localStorage.getItem('token')
+    console.log("Orderstatus is "+ orderStatus)
     axios.get(`https://sivakasi-crackers.onrender.com/admin/customer-order/get/status/${orderStatus}`,{
             headers: {
                 'Authorization':`Bearer ${token}`
@@ -205,16 +206,8 @@ export default function AdminHome() {
     const token = localStorage.getItem('token')
      if(event.target.value === "Pending" || event.target.value === "Completed") {
         setFilterStatus(true)
+        console.log(event.target.value)
         functionForFilter(event.target.value)
-        // const orderStatus = event.target.value
-        // setFilterStatus(true)
-        // axios.get(`https://sivakasi-crackers.onrender.com/admin/customer-order/get/status/${orderStatus}`,{
-        //     headers: {
-        //         'Authorization':`Bearer ${token}`
-        //     }
-        // }).then(response => {
-        //     setFilteredStatus(response.data)
-        // }).catch(error => setFilterStatus(error.data))
      } else if(event.target.value === "All") {
         setFilterStatus(false)
      }

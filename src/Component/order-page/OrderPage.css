@@ -263,6 +263,9 @@
         height: 10px;
         font-size: 6px;
         text-align: center;
+        border-top: none;
+        border-left: none;
+        border-right: none;
     }
     .form-container {
         top: 30%;

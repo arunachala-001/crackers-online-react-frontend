@@ -72,8 +72,7 @@ export default function ProductPage() {
     function handleProduct(productId) {
       const storedIds = JSON.parse(localStorage.getItem('selectedProductIds')) || []
         setSelectedId((ids) => {
-          const currentIds = [...new Set([...storedIds, ...ids])];
-          // 
+          const currentIds = [...new Set([...storedIds, ...ids])]; 
           const selectedProductIds = currentIds.includes(productId)
             ? currentIds.filter((id) => id !== productId)
             : [...currentIds, productId];
