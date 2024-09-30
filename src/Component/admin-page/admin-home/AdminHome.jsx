@@ -136,7 +136,7 @@ export default function AdminHome() {
     }
 
     useEffect(
-        () => retrieveAllInvoiceswithCustomer(), []
+        () => retrieveAllInvoiceswithCustomer(), [filterStatus, filteredStatus]
     )
 
     function downloadInvoice(userId) {
@@ -195,11 +195,18 @@ export default function AdminHome() {
         }).then(response => {
             if(response.status === 200 || response.status === 201) {
                 setFilteredStatus(response.data)
-            } else {
+            }
+            else if(response.data.length <=0) {
+                setFilterStatus("No Orders")
+            }
+            else {
                 setFilteredStatus("No data to show for"+ orderStatus)
             }
             
-        }).catch(error => setFilterStatus(error.data))
+        }).catch(error => {
+            setFilterStatus(error.data)
+            console.log(error)
+        })
    }
 
    function handleStatus(event) {
@@ -208,7 +215,7 @@ export default function AdminHome() {
         setFilterStatus(true)
         console.log(event.target.value)
         functionForFilter(event.target.value)
-     } else if(event.target.value === "All") {
+     } else {
         setFilterStatus(false)
      }
    }
