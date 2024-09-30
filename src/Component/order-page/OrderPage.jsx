@@ -223,9 +223,9 @@ export default function OrderPage() {
                    <label style={{color:'#43b873'}}>Qty</label>
                    <div className="quantity-container">
                      <button onClick={()=>handleQuantityDecrease(o.productId)}>-</button>
-                     <input type="number" value={quantity[o.productId]} className="quantity-field"
+                     <input type="number" value={quantity[o.productId] || 1} className="quantity-field"
                       onChange={(e)=>handleQuantityChange(o.productId,e.target.value)} required></input>
-                     <button onClick={()=>handleQuantityIncrease(o.productId)}>-</button>
+                     <button onClick={()=>handleQuantityIncrease(o.productId)}>+</button>
                    </div>
                    
                    <h4>Price :₹{o.productPrice}</h4>
