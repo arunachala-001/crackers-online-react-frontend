@@ -31,7 +31,9 @@ export default function OrderPage() {
 
     const [totalPrice, setTotalPrice] = useState(0)
     const [savedPrice, setSavedPrice] = useState(0)
-
+    const [errors, setErrors] = useState({
+      FirstName:"", LastName:"", email:"",mobile:"",address:"",pinCode:""
+    })
     // const TestingData = [
     //   {
     //          id: 1,
@@ -96,31 +98,36 @@ export default function OrderPage() {
        if(!userResponse) {
         setCustomer(true)
        } else {
-       const orderRequest= order.map((o) => ({
-             productName: o.productName,
-             productId: o.productId,
-             productPrice: o.productPrice,
-             orginalPrice: o.orginalPrice,
-             description: o.description,
-             productDiscount: o.productDiscount,
-             quantity: quantity[o.productId] || 1,
-                
-        }))
-        setLoading(true)
-        try {
-             await placeOrderBackend(userId, orderRequest)
-             .then(response => {
-                setOrderResponse(response.data)
-                if(response.status ===200 || response.status ===201) {
-                    setOrderTrue(true)
-                } else {
-                  setOrderResponse("Order Failed, Try again !")
-                }
-             }).finally(() => setLoading(false))
-           }
-           catch(error){
-               console.log(error)
-           }      
+        if(totalPrice >= 3000) {
+          const orderRequest= order.map((o) => ({
+            productName: o.productName,
+            productId: o.productId,
+            productPrice: o.productPrice,
+            orginalPrice: o.orginalPrice,
+            description: o.description,
+            productDiscount: o.productDiscount,
+            quantity: quantity[o.productId] || 1,
+               
+       }))
+       setLoading(true)
+       try {
+            await placeOrderBackend(userId, orderRequest)
+            .then(response => {
+               setOrderResponse(response.data)
+               if(response.status ===200 || response.status ===201) {
+                   setOrderTrue(true)
+               } else {
+                 setOrderResponse("Order Failed, Try again !")
+               }
+            }).finally(() => setLoading(false))
+          }
+          catch(error){
+              console.log(error)
+          }      
+        } else {
+          setOrderResponse("Minimum Order Should be from ₹3000 - Try Again!")
+        }
+       
        }    
     }
 
@@ -238,33 +245,50 @@ export default function OrderPage() {
       }, [order, quantity]
     )
     const saveCustomer = async () => {
+      if(validateContact) {
         const CustomerData = {
-            firstName : FirstName,
-            lastName : LastName,
-            emailAddress : email,
-            phoneNumber : mobile,
-            address : address,
-            pinCode : pinCode,
-            orderStatus: "Pending"
-        };
-        setLoading(true)
-        try {
-             await saveCustomerinDB(CustomerData)
-            .then(response => {
-                console.log(response)
-                if(response.status === 200 || response.status ===201) {
-                    setUserResponse(response.data)
-                    setUserId(response.data.substring(33))
-                    // setCustomerSaved(true)
-                } else {
-                    setUserResponse("Something went wrong, try again!")
-                }                
-            }).finally(() => setLoading(false))           
-        } catch (error) {
-            console.log(error)
-        }
+          firstName : FirstName,
+          lastName : LastName,
+          emailAddress : email,
+          phoneNumber : mobile,
+          address : address,
+          pinCode : pinCode,
+          orderStatus: "Pending"
+      };
+      setLoading(true)
+      try {
+           await saveCustomerinDB(CustomerData)
+          .then(response => {
+              console.log(response)
+              if(response.status === 200 || response.status ===201) {
+                  setUserResponse(response.data)
+                  setUserId(response.data.substring(33))
+                  // setCustomerSaved(true)
+              } else {
+                  setUserResponse("Something went wrong, try again!")
+              }                
+          }).finally(() => setLoading(false))           
+      } catch (error) {
+          console.log(error)
+      }
+      } else{
+        console.log("Invalid data")
+      }
+        
     }
+    function validateContact() {
+      const newErrors = {...errors}
 
+      if(!FirstName) {newErrors.FirstName="First Name is required"} else{newErrors.FirstName=""}
+      if(!LastName) {newErrors.LastName="Last Name is required"} else{newErrors.LastName=""}
+      if(!email) {newErrors.email="Email ID is required"} else{newErrors.email=""}
+      if(!mobile) {newErrors.mobile="Mobile Number is required"} else{newErrors.mobile=""}
+      if(!address) {newErrors.address="Address is required"} else{newErrors.address=""}
+      if(!pinCode) {newErrors.pinCode="Pin code is required"} else{newErrors.pinCode=""}
+
+      setErrors(newErrors)
+      return !Object.values(newErrors).some((error) => error);
+    }
     function downloadInvoice() {
         axios({
          url:`https://sivakasi-crackers.onrender.com/invoice/download/${userId}`,
@@ -383,32 +407,38 @@ export default function OrderPage() {
                              <label>First Name    :</label>
                              <input type="text" value={FirstName} 
                            onChange={(e) =>setFirstName(e.target.value)}></input>
+                           {errors.FirstName && <span style={{ color: "red", fontSize:'8px' }}>{errors.FirstName}</span>}
                            </div>
                            <div className="forms">
                              <label>Last Name     :</label>
                              <input type="text" value={LastName}
                            onChange={(e) => setLastName(e.target.value)}></input>
+                           {errors.LastName && <span style={{ color: "red", fontSize:'8px' }}>{errors.LastName}</span>}
                            </div>
                            <div className="forms">
                              <label>Email Address :</label>
                              <input type="text" value={email}
                            onChange={(e)=> setEmail(e.target.value)}></input>
+                           {errors.email && <span style={{ color: "red", fontSize:'8px' }}>{errors.email}</span>}
                            </div>
                            <div className="forms">
                              <label>Mobile Number :</label>
                              <input type="text" value={mobile}
                               onChange={(e)=> setMobile(e.target.value)}></input>
+                              {errors.mobile && <span style={{ color: "red", fontSize:'8px' }}>{errors.mobile}</span>}
                            </div>
                            <div className="forms">
                              <label>Address       :</label>
                              <input type="box" value={address}
                              onChange={(e) => setAddress(e.target.value)}></input>
+                             {errors.address && <span style={{ color: "red", fontSize:'8px' }}>{errors.address}</span>}
                            </div>
 
                            <div className="forms">
                              <label>Pin Code      :</label>
                              <input type="text" value={pinCode}
                              onChange={(e) => setPincode(e.target.value)}></input>
+                             {errors.pinCode && <span style={{ color: "red", fontSize:'8px' }}>{errors.pinCode}</span>}
                            </div>
                            
                          </div>
