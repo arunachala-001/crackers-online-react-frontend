@@ -103,7 +103,7 @@ export default function OrderPage() {
              orginalPrice: o.orginalPrice,
              description: o.description,
              productDiscount: o.productDiscount,
-             quantity: quantity[o.productId]
+             quantity: quantity[o.productId] || 1,
                 
         }))
         setLoading(true)
