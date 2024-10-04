@@ -20,7 +20,7 @@ export default function OrderPage() {
     const [orderTrue, setOrderTrue] = useState(false)
     const [userResponse, setUserResponse] = useState("")
     const [userId, setUserId] = useState("")
-
+    const [orderValidation, setOrderValidation] = useState(false)
     const [quantityResponse, setQuantitResponse] = useState("")
     const [FirstName, setFirstName] = useState("")
     const [LastName, setLastName] = useState("")
@@ -125,8 +125,7 @@ export default function OrderPage() {
               console.log(error)
           }      
         } else {
-          setOrder(true)
-          setOrderResponse("Minimum Order Should be from ₹3000 - Try Again!")
+          setOrderValidation(true)
         }
        
        }    
@@ -310,6 +309,7 @@ export default function OrderPage() {
     function closeCustomerTab() {
         setCustomer(false)
         setOrderTrue(false)
+        setOrderValidation(false)
     }
 
     function navigateToHome() {
@@ -324,12 +324,12 @@ export default function OrderPage() {
     // }
     return (
         <div className="OrderPage">
-            <div className="background-order"></div> 
+            <div className="background-order" onClick={closeCustomerTab}></div> 
             <div className="back-btn-order">
               <button onClick={navigateToHome}>Back</button>
             </div>
             <h1 className="Order-Tittle">Order Details</h1>
-            <div className="cost-container">
+            <div className="cost-container" onClick={closeCustomerTab}>
               <div className="cost-title"><h3>Total Cost Estimation</h3></div>
               <div className="cost">
                 <h4>Total Price : <div className="total-price">₹{totalPrice}</div></h4>
@@ -386,7 +386,16 @@ export default function OrderPage() {
             ) : (
                  <div></div>
             )}
+
+            {orderValidation && (
+              <div className="order-response-container">
+                <p style={{fontStyle:'italic', fontWeight:'bold', color:'red',
+                   fontSize:'10px', letterSpacing:'1px'}} className="order-response">
+                    Minimum Order Should be from ₹3000 - Try Again!
+                </p>
               
+              </div>
+            )}  
             
             {customer && (
                 <div className="form-container">
