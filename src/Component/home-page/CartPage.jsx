@@ -5,6 +5,7 @@ import Offerimg from "../home-page/offer-tag.jpg"
 import '../product-page/ProductPage.css'
 import { useEffect, useState } from "react";
 import HeaderPage from "./HeaderPage";
+import { BounceLoader } from "react-spinners";
 
 export default function CartPage() {
     const [product, setProduct] = useState([])
@@ -13,10 +14,12 @@ export default function CartPage() {
     const navigate = useNavigate()
     const [popup, setPopup] = useState(false)
     const [email, setEmail] = useState("")
+    const [loading, setLoading] = useState(false)
 
     function fetchProductsByCategoryId() {
         const storedIds = JSON.parse(localStorage.getItem('selectedProductIds')) || []
         console.log(storedIds)
+        setLoading(true)
         fetchProductsForOrder(storedIds)
         .then(response =>{ 
             console.log(response.data)
@@ -31,7 +34,7 @@ export default function CartPage() {
             }))
             return setProduct(mapToProduct)
         }) 
-        .catch(error => console.log(error))
+        .catch(error => console.log(error)).finally(() => setLoading(false))
     }
 
     useEffect(
@@ -78,7 +81,19 @@ export default function CartPage() {
                 </div>
               )}
             <h2 style={{textDecoration:'underline'}} className="product-heading">List of Carts</h2>
-
+            {loading ? (
+                 <div className="loading-cart-style">
+                 <BounceLoader></BounceLoader>
+               </div>
+            ) : (
+                 <div></div>
+            )}
+            {product.length <=0 ? (
+                <p style={{fontSize:'8px', color:'green', fontStyle:'italic'}}>Currently you dont have carts</p>
+            ) : (
+                <div></div>
+            )
+        }
             <div className="product-container" onClick={offPopUp}>
             {product.map(p => (
                 <div key={p.id}>
@@ -111,7 +126,7 @@ export default function CartPage() {
                 opacity: isOrderBtnDisabled ? 0.5 : 1, // Optional: Visual indication
                 cursor: isOrderBtnDisabled ? 'not-allowed' :'pointer' ,
               }}
-              className="order-btn">ORDER NOW</button>
+              className="order-btn">NEXT</button>
             </div>
 
         </div>

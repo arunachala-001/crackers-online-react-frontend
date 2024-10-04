@@ -24,9 +24,10 @@ export default function HomePage() {
   //  const [cartState, setCartState] = useState(0)
 
    function retriveAllCategory() {
+    setLoading(true)
     fetchAllCategories()
     .then(response => {
-      setLoading(true)
+      
         console.log(response.data)
         const categories = response.data.map((res) => ({
             id : res.categoryId,

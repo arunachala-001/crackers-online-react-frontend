@@ -29,10 +29,15 @@ export default function OrderPage() {
     const [address, setAddress] = useState("")
     const [pinCode, setPincode] = useState("")
 
+    const [totalPrice, setTotalPrice] = useState(0)
+    const [savedPrice, setSavedPrice] = useState(0)
+
     // const TestingData = [
     //   {
     //          id: 1,
     //          productName : "Baby Rockets",
+    //          productPrice:200,
+    //          orginalPrice:450,
     //          category: {
     //          id : 100,
     //          name : "Rockets"
@@ -41,6 +46,8 @@ export default function OrderPage() {
     //         {
     //          id: 2,
     //          productName : "Bomb Rockets",
+    //          productPrice:200,
+    //          orginalPrice:450,
     //          category: {
     //          id : 100,
     //          name : "Rockets"
@@ -49,6 +56,8 @@ export default function OrderPage() {
     //         {
     //          id: 3,
     //          productName : "Super Rockets",
+    //          productPrice:200,
+    //          orginalPrice:450,
     //          category: {
     //          id : 100,
     //          name : "Rockets"
@@ -116,31 +125,78 @@ export default function OrderPage() {
     }
 
     const handleQuantityChange = (productId, value) => {
-      if(value.trim === '' || value <=0) {
+      if(value === "" || isNaN(value) || parseInt(value, 10)<=0) {
         setQuantitResponse("Please Add Quantity")
         setTimeout(() => setQuantitResponse(''), 10000);
       }
         setQuantity(prevQuantities => ({
             ...prevQuantities,
-            [productId]: value
+            [productId]: parseInt(value, 10)
         }));
+      //   setQuantity(prevQuantities => {
+      //     const newQuantities = {
+      //       ...prevQuantities,
+      //       [productId]: value
+      //     };
+      //    const newTotalPrice = TestingData.reduce((total, o) => {
+      //     const qty = newQuantities[o.id] || 1;
+      //     return total+(qty*o.productPrice)
+      //    }, 0);
+      //    setTotalPrice(newTotalPrice)
+
+      //    const newSavedPrice = TestingData.reduce((saved, o) => {
+      //     const qty = quantity[o.id] || 1;
+      //     const orginalPrice= saved+(qty*o.orginalPrice);
+      //     return orginalPrice;
+      //   }, 0);
+      //   setSavedPrice(newSavedPrice - newTotalPrice)
+
+      //   return newQuantities;
+      // });
     };
 
     function handleQuantityDecrease(productId) {
-      setQuantity((prev) => ({
+      // setQuantity((prev) => ({
+      //   ...prev,
+      //   [productId]:Math.max(0,(prev[productId])-1)
+      // }))
+      setQuantity((prev) => {
+        const currentQuantity = Number(prev[productId] || 1)
+       return {
         ...prev,
-        [productId]:Math.max(0,(prev[productId] || 1)-1)
-      }))
+        [productId]:Math.max(0,currentQuantity-1)
+       } 
+      })
       console.log(setQuantity)
     }
 
     function handleQuantityIncrease(productId) {
+      // setQuantity((prev) => ({
+      //   ...prev,
+      //   [productId] : (prev[productId])+1
+      // }))
       setQuantity((prev) => ({
         ...prev,
-        [productId] : (prev[productId] || 1)+1
+        [productId] : (Number(prev[productId] || 1))+1
       }))
     }
 
+    useEffect(
+      () => {
+        const initialTotalPrice = order.reduce((total, o) => {
+          const qty = quantity[o.id] || 1;
+          return total+(qty*o.productPrice);
+        }, 0);
+        setTotalPrice(initialTotalPrice)
+
+        const initialSavedPrice = order.reduce((saved, o) => {
+          const qty = quantity[o.id] || 1;
+          const orginalPrice= saved+(qty*o.orginalPrice);
+          return orginalPrice;
+        }, 0);
+        setSavedPrice(initialSavedPrice - initialTotalPrice)
+      }, [order, quantity]
+    )
     const saveCustomer = async () => {
         const CustomerData = {
             firstName : FirstName,
@@ -208,6 +264,14 @@ export default function OrderPage() {
               <button onClick={navigateToHome}>Back</button>
             </div>
             <h1 className="Order-Tittle">Order Details</h1>
+            <div className="cost-container">
+              <div className="cost-title"><h3>Total Cost Estimation</h3></div>
+              <div className="cost">
+                <h4>Total Price : <div className="total-price">₹{totalPrice}</div></h4>
+                <p>You Saved : <div className="saved-price">₹{savedPrice}</div></p>
+              </div>
+            
+            </div>
             <div className="quantity-response">
               <p >{quantityResponse}</p>
             </div>
@@ -241,7 +305,7 @@ export default function OrderPage() {
             {orderTrue && (
                 <>
                 <div className="order-response-container">
-                  <p style={{fontStyle:'italic', fontWeight:'bold', color:'#07b441'}} className="order-response">{orderResponse}</p>
+                  <p style={{fontStyle:'italic', fontWeight:'bold', color:'#07b441', fontSize:'10px', letterSpacing:'1px'}} className="order-response">{orderResponse}</p>
                   <div style={{display:'flex', justifyContent:'center'}}>
                   <button htmlFor="" style={{textDecoration:'underline', marginRight:'20px'}} onClick={downloadInvoice}>Download Invoice</button>
                   </div>
@@ -320,6 +384,15 @@ export default function OrderPage() {
             {/* <div className="quantity-response">
               <p >{quantityResponse}</p>
             </div>
+            <div className="cost-container">
+              <div className="cost-title"><h3>Total Cost Estimation</h3></div>
+              <div className="cost">
+                <h4>Total Price : <div className="total-price">₹{totalPrice}</div></h4>
+                <p>You Saved : <div className="saved-price">₹{savedPrice}</div></p>
+              </div>
+            
+            </div>
+            
             <div className="order-container">
                    {TestingData.map((o) => (
                     <div key={o.id}>
@@ -331,12 +404,13 @@ export default function OrderPage() {
                           <label style={{color:'#43b873'}}>Qty</label>
                           <div className="quantity-container">
                             <button onClick={()=>handleQuantityDecrease(o.id)}>-</button>
-                            <input type="number" className="quantity-field"
-                            value={quantity[o.id]|| 1} required></input>
+                            <input type="number" className="quantity-field" onChange={(e)=>handleQuantityChange(o.id,e.target.value)}
+                            value={quantity[o.id] || 1} required></input>
                             <button onClick={()=>handleQuantityIncrease(o.id)}>+</button>
                           </div>
 
-                          <h4>Price :₹180</h4>
+                          <h4>{o.productPrice}</h4>
+                          <h4>{o.orginalPrice}</h4>
                           <p>30cm 1 Box</p>
                         </div>
                     </div>
@@ -388,17 +462,18 @@ export default function OrderPage() {
 
             {/* <div className="form-container">
 
-            <p style={{fontStyle:'italic', alignSelf:'center', fontWeight:'bold', color:'#07b441'}} className="customer-response">User Saved Successfully</p>
+            <p style=
+            {{fontStyle:'italic', alignSelf:'center', fontWeight:'bold', color:'#07b441', fontSize:'10px', letterSpacing:'1px'}}
+             className="customer-response">User Saved Successfully</p>
             <button className="close-btn" onClick={() => setCustomer(false)}>Close</button>
             </div> */}
-
-                  {/* <div className="order-response-container">
-                  <p style={{fontStyle:'italic', fontWeight:'bold', color:'#07b441'}} className="order-response">Order Placed Succeefully</p>
-                  <div style={{display:'flex', justifyContent:'center'}}>
-                  <button htmlFor="" style={{textDecoration:'underline', marginRight:'20px'}}>Download Invoice</button>
-                  </div>
-                  
-                </div> */}
+            {/* <div className="order-response-container">
+                <p style={{fontStyle:'italic', fontWeight:'bold', color:'#07b441'}} className="order-response">Order Placed Succeefully</p>
+                <div style={{display:'flex', justifyContent:'center'}}>
+                    <button htmlFor="" style={{textDecoration:'underline', marginRight:'20px'}}>Download Invoice</button>
+                </div>     
+            </div> */}
+                 
 
             {/* -------------------------------------------------------------- */}
 

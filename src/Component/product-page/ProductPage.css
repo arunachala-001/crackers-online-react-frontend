@@ -325,4 +325,10 @@
     .final-thanks {
         font-size: 8px;
     }
+    .loading-cart-style {
+        margin: auto;
+        position: fixed;
+        top: 40%;
+        left: 40%;
+    }
 }

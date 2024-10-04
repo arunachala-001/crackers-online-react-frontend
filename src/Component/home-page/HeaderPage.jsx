@@ -31,8 +31,9 @@ export default function HeaderPage({handlePopup}) {
               <div className="tags">
                 <button className="tag" onClick={navigateToHome}>Home</button>
                 <button className="tag" onClick={handlePopup}>Your Orders</button>
-                <button className="tag" onClick={navigateToAbout}>About Us</button>
                 <button className="tag" onClick={navigateToCart}>Your Cart</button>
+                <button className="tag" onClick={navigateToAbout}>About Us</button>
+                
               </div>
              
             </div> 

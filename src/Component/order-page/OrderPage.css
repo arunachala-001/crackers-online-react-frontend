@@ -160,6 +160,9 @@
     left: 30%;
     width: 400px;
     height: 200px;
+    border-style: solid;
+    border: 0.5px;
+    border: black;
     border-radius: 30px;
     background-color: #ffffff;
     justify-content: center;
@@ -360,17 +363,17 @@
         margin-bottom: 10px;
         transition: background-color 0.3s ease, transform 0.2s ease;
     }
-    
     .order-response-container {
-        top: 40%;
+        top: 50%;
         left: 0%;
         width: 100%;
         height: auto;
         border-radius: 30px;
+        border: 0.5px solid rgb(65, 65, 65);
         background-color: #ffffff;
         justify-content: center;
         position: fixed;
-        box-shadow:3px 4px rgba(0, 0, 0, 0.5)
+        box-shadow:1.5px 3px rgba(0, 0, 0, 0.5)
     }
     .order-response-container button {
         font-size: 10px;
@@ -429,7 +432,58 @@
         margin-bottom: 3px;
         font-weight: bold;
         font-size: 18px;
-    
+    }
+    .cost-container {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        width: 300px;
+        height: 42px;
+        border: black;
+        border: 0.5px;
+        border-style: solid;
+        border-radius: 20px;
+        justify-content: center;
+        background-color:#ceffbc92;
+    }
+    .cost-title {
+        font-size: 8px;
+        margin: 1px;
+        font-family: 'Times New Roman', Times, serif;
+        letter-spacing: 1.1px;
+        /* background-color: #00b126; */
+        height: 25px;
+        align-self: center;
+    }
+    .cost {
+        display: flex;
+        justify-content: space-evenly;
+        /* background-color: #640000; */
+        height: 15px;
+        align-items: center;
+    }
+    .cost h4 {
+        font-size: 8px;
+        display: flex;
+        font-weight: bold;
+        letter-spacing: 1.1px;
+    }
+    .cost p {
+        font-size: 8px;
+        display: flex;
+        font-weight: bold;
+        letter-spacing: 1.1px;
+    }
+    .total-price {
+        font-size: 8px;
+        color: #ff0000;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        letter-spacing: 1px;
+    }
+    .saved-price {
+        color: #007e88;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        letter-spacing: 1px;
     }
      
 }
