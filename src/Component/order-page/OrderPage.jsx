@@ -129,45 +129,65 @@ export default function OrderPage() {
         setQuantitResponse("Please Add Quantity")
         setTimeout(() => setQuantitResponse(''), 10000);
       }
-        setQuantity(prevQuantities => ({
+        // setQuantity(prevQuantities => ({
+        //     ...prevQuantities,
+        //     [productId]: parseInt(value, 10)
+        // }));
+        setQuantity(prevQuantities => {
+          const newQuantities = {
             ...prevQuantities,
             [productId]: parseInt(value, 10)
-        }));
-      //   setQuantity(prevQuantities => {
-      //     const newQuantities = {
-      //       ...prevQuantities,
-      //       [productId]: value
-      //     };
-      //    const newTotalPrice = TestingData.reduce((total, o) => {
-      //     const qty = newQuantities[o.id] || 1;
-      //     return total+(qty*o.productPrice)
-      //    }, 0);
-      //    setTotalPrice(newTotalPrice)
+          };
+         const newTotalPrice = TestingData.reduce((total, o) => {
+          const qty = newQuantities[o.id] || 1;
+          return total+(qty*o.productPrice)
+         }, 0);
+         setTotalPrice(newTotalPrice)
 
-      //    const newSavedPrice = TestingData.reduce((saved, o) => {
-      //     const qty = quantity[o.id] || 1;
-      //     const orginalPrice= saved+(qty*o.orginalPrice);
-      //     return orginalPrice;
-      //   }, 0);
-      //   setSavedPrice(newSavedPrice - newTotalPrice)
+         const newSavedPrice = TestingData.reduce((saved, o) => {
+          const qty = quantity[o.id] || 1;
+          const orginalPrice= saved+(qty*o.orginalPrice);
+          return orginalPrice;
+        }, 0);
+        setSavedPrice(newSavedPrice - newTotalPrice)
 
-      //   return newQuantities;
-      // });
+        return newQuantities;
+      });
     };
 
     function handleQuantityDecrease(productId) {
+      setQuantity((prev) => {
+        const newQuantities = {
+          ...prev,
+          [productId]:Math.max(0, Number(prev[productId] || 1)-1)
+        };
+
+        const newTotalPrice = order.reduce((total, o) => {
+          const qty = newQuantities[o.id] || 1;
+          return total+(qty*o.productPrice)
+        }, 0)
+        setTotalPrice(newTotalPrice)
+
+        const newSavedPrice = order.reduce((saved, o) => {
+          const qty = newQuantities[o.id] || 1;
+          return saved+ (qty*o.orginalPrice);
+        }, 0)
+        setSavedPrice(newSavedPrice-newTotalPrice)
+
+        return newQuantities;
+      });
       // setQuantity((prev) => ({
       //   ...prev,
       //   [productId]:Math.max(0,(prev[productId])-1)
       // }))
-      setQuantity((prev) => {
-        const currentQuantity = Number(prev[productId] || 1)
-       return {
-        ...prev,
-        [productId]:Math.max(0,currentQuantity-1)
-       } 
-      })
-      console.log(setQuantity)
+      // setQuantity((prev) => {
+      //   const currentQuantity = Number(prev[productId] || 1)
+      //  return {
+      //   ...prev,
+      //   [productId]:Math.max(0,currentQuantity-1)
+      //  } 
+      // })
+      
     }
 
     function handleQuantityIncrease(productId) {
@@ -175,10 +195,30 @@ export default function OrderPage() {
       //   ...prev,
       //   [productId] : (prev[productId])+1
       // }))
-      setQuantity((prev) => ({
-        ...prev,
-        [productId] : (Number(prev[productId] || 1))+1
-      }))
+      // setQuantity((prev) => ({
+      //   ...prev,
+      //   [productId] : (Number(prev[productId] || 1))+1
+      // }))
+
+      setQuantity((prev) => {
+        const newQuantities = {
+          ...prev,
+          [productId] : (Number(prev[productId] || 1))+1
+        }
+        const newTotalPrice = order.reduce((total, o) => {
+          const qty = newQuantities[o.id] || 1;
+          return total+(qty*o.productPrice)
+        }, 0)
+        setTotalPrice(newTotalPrice)
+
+        const newSavedPrice = order.reduce((saved, o) => {
+          const qty = newQuantities[o.id] || 1;
+          return saved+ (qty*o.orginalPrice);
+        }, 0)
+        setSavedPrice(newSavedPrice-newTotalPrice)
+
+        return newQuantities;
+      })
     }
 
     useEffect(
