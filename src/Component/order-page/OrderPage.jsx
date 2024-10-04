@@ -125,6 +125,7 @@ export default function OrderPage() {
               console.log(error)
           }      
         } else {
+          setOrder(true)
           setOrderResponse("Minimum Order Should be from ₹3000 - Try Again!")
         }
        
@@ -245,7 +246,7 @@ export default function OrderPage() {
       }, [order, quantity]
     )
     const saveCustomer = async () => {
-      if(validateContact) {
+      if(validateContact()) {
         const CustomerData = {
           firstName : FirstName,
           lastName : LastName,
