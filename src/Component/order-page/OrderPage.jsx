@@ -138,14 +138,14 @@ export default function OrderPage() {
             ...prevQuantities,
             [productId]: parseInt(value, 10)
           };
-         const newTotalPrice = TestingData.reduce((total, o) => {
-          const qty = newQuantities[o.id] || 1;
+         const newTotalPrice = order.reduce((total, o) => {
+          const qty = newQuantities[o.productId] || 1;
           return total+(qty*o.productPrice)
          }, 0);
          setTotalPrice(newTotalPrice)
 
-         const newSavedPrice = TestingData.reduce((saved, o) => {
-          const qty = quantity[o.id] || 1;
+         const newSavedPrice = order.reduce((saved, o) => {
+          const qty = quantity[o.productId] || 1;
           const orginalPrice= saved+(qty*o.orginalPrice);
           return orginalPrice;
         }, 0);
@@ -163,13 +163,13 @@ export default function OrderPage() {
         };
 
         const newTotalPrice = order.reduce((total, o) => {
-          const qty = newQuantities[o.id] || 1;
+          const qty = newQuantities[o.productId] || 1;
           return total+(qty*o.productPrice)
         }, 0)
         setTotalPrice(newTotalPrice)
 
         const newSavedPrice = order.reduce((saved, o) => {
-          const qty = newQuantities[o.id] || 1;
+          const qty = newQuantities[o.productId] || 1;
           return saved+ (qty*o.orginalPrice);
         }, 0)
         setSavedPrice(newSavedPrice-newTotalPrice)
@@ -206,13 +206,13 @@ export default function OrderPage() {
           [productId] : (Number(prev[productId] || 1))+1
         }
         const newTotalPrice = order.reduce((total, o) => {
-          const qty = newQuantities[o.id] || 1;
+          const qty = newQuantities[o.productId] || 1;
           return total+(qty*o.productPrice)
         }, 0)
         setTotalPrice(newTotalPrice)
 
         const newSavedPrice = order.reduce((saved, o) => {
-          const qty = newQuantities[o.id] || 1;
+          const qty = newQuantities[o.productId] || 1;
           return saved+ (qty*o.orginalPrice);
         }, 0)
         setSavedPrice(newSavedPrice-newTotalPrice)
@@ -224,13 +224,13 @@ export default function OrderPage() {
     useEffect(
       () => {
         const initialTotalPrice = order.reduce((total, o) => {
-          const qty = quantity[o.id] || 1;
+          const qty = quantity[o.productId] || 1;
           return total+(qty*o.productPrice);
         }, 0);
         setTotalPrice(initialTotalPrice)
 
         const initialSavedPrice = order.reduce((saved, o) => {
-          const qty = quantity[o.id] || 1;
+          const qty = quantity[o.productId] || 1;
           const orginalPrice= saved+(qty*o.orginalPrice);
           return orginalPrice;
         }, 0);
