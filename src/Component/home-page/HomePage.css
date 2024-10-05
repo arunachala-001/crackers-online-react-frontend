@@ -198,6 +198,122 @@
     margin: 3px;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
+.web-title {
+    margin-bottom: 0.1px;
+    color: rgb(0, 74, 84);
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: 0.02px;
+    font-size: 24px;
+}
+.welcome-content {
+    width: 700px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(78, 78, 78);
+    letter-spacing: 1px;
+}
+.content-container {
+   display: flex;  
+   margin-top: 15px;
+   height: auto;
+}
+.content-inside {
+    text-align: start;
+    background-color: rgb(231, 231, 231);
+    width: 500px;
+    height: auto;
+    margin-left: 70px;
+    padding: 10px;
+    border-radius: 20px;
+}
+.content-container p,li {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 1.3px;
+    color: #696969;
+}
+.content-container h4 {
+    margin-left: 18px;
+    text-decoration: underline;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: 1px;
+}
+.webcontent-image-container {
+    width: 600px;
+    height: 950px;
+    margin-top: 20px;
+    margin-left: 12px;
+    background-color: white;
+    border-radius: 25px;
+}
+.box-design {
+    width: 460px;
+    margin-top: 130px;
+    margin-left: 30px;
+    height: 500px;
+    background-color: #84f3b0;
+}
+.box-design img {
+    width: 450px;
+    margin-left: 70px;
+    height: 450px;
+    margin-top: -30px;
+}
+
+.product-content {
+    display: flex;  
+    justify-content: space-between;
+}
+.description-content {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 450px;
+}
+.description-content li {
+    text-align: start;
+}
+.description-content p {
+    font-size: 12px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #696969;
+    font-weight: bold;
+}
+.description-content h3 {
+    text-align: start;
+    margin-left: 20px;
+    text-decoration: underline;
+    margin-bottom: 1px;
+}
+.description-content-right {
+    display: flex;
+    flex-direction: column;
+}
+.description-content-right li {
+    text-align: start;
+    margin-right: 20px;
+}
+.description-content-right h3 {
+    text-align: start;
+    margin-right: 20px;
+    text-decoration: underline;
+    margin-bottom: 1px;
+}
+.description-content-right p {
+    text-align: start;
+    font-size: 12px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #696969;
+    font-weight: bold;
+}
+.developer {
+    display: flex;
+    justify-content: right;
+    margin-right: 20px;
+    font-size: 10px;
+}
 .cart-page {
     background: none;
     border: none;
@@ -428,6 +544,126 @@
     }
     .final-thanks {
         font-size: 8px;
+    }
+    .web-title {
+        margin-bottom: 0.1px;
+        color: rgb(0, 74, 84);
+        font-family: 'Courier New', Courier, monospace;
+        letter-spacing: 0.02px;
+        font-size: 10px;
+    }
+    .welcome-content {
+        width: 280px;
+        display: flex;
+        flex-wrap: wrap;
+        margin: auto;
+        font-size: 8px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: rgb(78, 78, 78);
+        letter-spacing: 1px;
+    }
+    .content-container {
+       display: flex;  
+       margin-top: 10px;
+       height: auto;
+    }
+    .content-inside {
+        text-align: start;
+        background-color: rgb(231, 231, 231);
+        width: 150px;
+        height: auto;
+        margin-left: 5px;
+        padding: 5px;
+        border-radius: 20px;
+    }
+    .content-container p,li,hr {
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        letter-spacing: 1.1px;
+        color: #696969;
+        font-size: 6px;
+        margin-left: -20px;
+    }
+    .content-container h4 {
+        margin-left: 10px;
+        text-decoration: underline;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        letter-spacing: 1px;
+        font-size: 8px;
+    }
+    .webcontent-image-container {
+        width: 120px;
+        height: 450px;
+        margin-top: 10px;
+        margin-left: 2px;
+        background-color: white;
+        border-radius: 25px;
+    }
+    .box-design {
+        width: 120px;
+        margin-top: 130px;
+        margin-left: 10px;
+        height: 170px;
+        background-color: #84f3b0;
+    }
+    .box-design img {
+        width: 120px;
+        margin-left: 10px;
+        height: 160px;
+        margin-top: -10px;
+    }
+    
+    .product-content {
+        display: flex;  
+        justify-content: space-between;
+    }
+    .description-content {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    .description-content li {
+        text-align: start;
+    }
+    .description-content p {
+        font-size: 6px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        color: #696969;
+        font-weight: bold;
+        margin-top: -5px;
+    }
+    .description-content h3 {
+        text-align: start;
+        margin-left: 20px;
+        text-decoration: underline;
+        margin-bottom: -8px;
+    }
+    .description-content-right {
+        display: flex;
+        flex-direction: column;
+    }
+    .description-content-right li {
+        text-align: start;
+        margin-right: 10px;
+    }
+    .description-content-right h3 {
+        text-align: start;
+        margin-right: 20px;
+        text-decoration: underline;
+        margin-bottom: -8px;
+    }
+    .description-content-right p {
+        text-align: start;
+        font-size: 6px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        color: #696969;
+        font-weight: bold;
+        margin-top: -5px;
+    }
+    .developer {
+        display: flex;
+        justify-content: right;
+        margin-right: 10px;
+        font-size: 6px;
     }
     .loading-style {
         position: fixed;
