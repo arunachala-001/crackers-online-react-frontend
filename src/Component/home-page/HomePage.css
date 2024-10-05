@@ -547,10 +547,10 @@
     }
     .web-title {
         margin-bottom: 0.1px;
-        color: rgb(0, 74, 84);
+        color: rgb(0, 89, 101);
         font-family: 'Courier New', Courier, monospace;
         letter-spacing: 0.02px;
-        font-size: 10px;
+        font-size: 8px;
     }
     .welcome-content {
         width: 280px;
@@ -569,7 +569,7 @@
     }
     .content-inside {
         text-align: start;
-        background-color: rgb(231, 231, 231);
+        /* background-color: rgb(231, 231, 231); */
         width: 150px;
         height: auto;
         margin-left: 5px;
@@ -591,7 +591,7 @@
         font-size: 8px;
     }
     .webcontent-image-container {
-        width: 120px;
+        width: 150px;
         height: 450px;
         margin-top: 10px;
         margin-left: 2px;
@@ -599,16 +599,16 @@
         border-radius: 25px;
     }
     .box-design {
-        width: 120px;
+        width: 150px;
         margin-top: 130px;
-        margin-left: 10px;
-        height: 170px;
+        margin-left: 5px;
+        height: 190px;
         background-color: #84f3b0;
     }
     .box-design img {
-        width: 120px;
-        margin-left: 10px;
-        height: 160px;
+        width: 150px;
+        margin-left: 15px;
+        height: 185px;
         margin-top: -10px;
     }
     
