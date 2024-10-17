@@ -98,7 +98,7 @@ export default function OrderPage() {
        if(!userResponse) {
         setCustomer(true)
        } else {
-        if(totalPrice >= 3000) {
+        if(totalPrice >= 500) {
           const orderRequest= order.map((o) => ({
             productName: o.productName,
             productId: o.productId,
@@ -391,7 +391,7 @@ export default function OrderPage() {
               <div className="order-response-container">
                 <p style={{fontStyle:'italic', fontWeight:'bold', color:'red',
                    fontSize:'10px', letterSpacing:'1px'}} className="order-response">
-                    Minimum Order Should be from ₹3000 - Try Again!
+                    Minimum Order Should be from ₹500 - Try Again!
                 </p>
               
               </div>
